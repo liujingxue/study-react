@@ -2,7 +2,7 @@
  * Created by Administrator on 2018/3/29.
  */
 /*
-一、	NodeJS安装
+一、NodeJS安装
     版本：9.8.0
 
 二、	NPM配置国内源
@@ -20,6 +20,14 @@
 三、使用NPM配置React环境
     npm init –y
     安装依赖
-    npm install --save react
+    cnpm i react react-dom babelify babel-preset-react babel-core babel-preset-es2015 --save
+
+
+
+
+
+
+
+
 
 */

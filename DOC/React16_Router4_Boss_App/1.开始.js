@@ -46,9 +46,11 @@ yarn eject
     |--logo.svg        //svg图片
 
 //->如何使用create-react-app
-npm i redux --save 安装第三方库redux
 npm run eject 弹出配置文件，可以自定义配置webpack
 扩展package.json里的script字段，扩展npm run命令
+
+npm i redux --save 安装第三方库redux
+
 
 //使用redux
 import {createStore} from 'redux';
@@ -67,7 +69,10 @@ npm i
 npm start
 //实测：第一种方法可以解决
 
-
+//->
+npm run eject
+是生成webpack的配置文件
+生成config和scripts目录
 
 
 

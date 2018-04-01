@@ -8,5 +8,11 @@ Js里直接写html
 Class要写成className
 变量用{}包裹即可
 
-
+//入门例子
+import React from 'react';
+class App extends React.Component{
+    render(){
+        return <h2>this is 首页</h2>
+    }
+}
 ```

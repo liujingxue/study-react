@@ -35,3 +35,8 @@ Failed at the boss@0.1.0 eject script.
 
 This is probably not a problem with npm. There is likely additional logging output above.
 使用npm run eject命令失败
+
+Error with run “npm run eject”. Error 'Remove untracked files, stash or commit any changes, and try again.'
+
+解决办法：这是个git问题，你的版本库里有未提交的文件。
+

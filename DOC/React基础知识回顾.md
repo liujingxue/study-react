@@ -75,3 +75,7 @@ function Footer(props){
 
 
 
+组件内部通过state管理状态
+
+
+

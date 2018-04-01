@@ -27,7 +27,7 @@
 
 ## 如何使用create-react-app
 ```
-    npm run eject
+npm run eject
 
 ```
 出现错误：
@@ -38,5 +38,14 @@ This is probably not a problem with npm. There is likely additional logging outp
 
 Error with run “npm run eject”. Error 'Remove untracked files, stash or commit any changes, and try again.'
 
-解决办法：这是个git问题，你的版本库里有未提交的文件。
+解决办法：
+这是个git问题，你的版本库里有未提交的文件。
+```
+git add .
+git commit -am "Save before ejecting"
+```
+以上两行解决了npm run eject报错的问题。
+
+
+
 

@@ -192,11 +192,36 @@ https://fb.me/react-devtools
 
 * 使用9月刚发布的2.0版本，http://beta.mobile.ant.design/
 * 使用npm i antd-mobile@next --save安装最新版
+* 兼容Web和ReactNative
 
 ```
 //安装
 cd boss
 npm i antd-mobile@next --save
 
+//官网
+https://mobile.ant.design/
+
+//使用
+import {Button} from 'antd-mobile';
+import 'antd-mobile/dist/antd-mobile.css'
+
+<Button></Button>
+
+//安装 babel-plugin-import
+是一个用于按需加载组件代码和样式的babel插件
+npm i babel-plugin-import --save
+
+在package.json里面加上
+"babel": {
+    "presets": [
+      "react-app"
+    ],
+    "plugins":[
+      ["import",{"libraryName":"antd-mobile","style":"css"}]
+    ]
+},
+
+这样配置完后，就不需要 import 'antd-mobile/dist/antd-mobile.css'，这样导入样式了。
 
 ```

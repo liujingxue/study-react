@@ -183,4 +183,20 @@ render(){
 ```
 
 
-## 六、安装
+## 六、安装Chrome扩展 react-devtools
+
+https://fb.me/react-devtools
+
+
+## 七、Antd-mobile组件库使用
+
+* 使用9月刚发布的2.0版本，http://beta.mobile.ant.design/
+* 使用npm i antd-mobile@next --save安装最新版
+
+```
+//安装
+cd boss
+npm i antd-mobile@next --save
+
+
+```

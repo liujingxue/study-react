@@ -73,7 +73,68 @@ function Footer(props){
 
 组件内部通过state管理状态
 
+* 可以直接用.map遍历数组
+* Constructor设置初始状态,记得执行super(props)
+* 如State就是一个不可变的对象，使用this.state获取
 
+```
+
+class Header extends React.Component{
+    constructor(props){
+        super(props)
+        this.state={
+            solders:['虎子','柱子']
+        }
+    }
+    render(){
+        return (
+            <div>
+                <ul>
+                    {this.state.solders.map(v=>{
+                        return <li key={v}>{v}</li>
+                    })}
+                </ul>
+            </div>
+        )
+    }
+}
+
+```
+
+## 四、事件
+
+onClick点击事件
+
+* onClick={this.函数名}来绑定事件
+* this引用的问题，需要在构造函数里用bind绑定this
+* this.setState修改state,记得返回新的state,而不是修改
+
+```
+class Header extends React.Component{
+    constructor(props){
+        super(props)
+        this.state={
+            solders:['虎子','柱子']
+        }
+    }
+    _addSolder(){
+        console.log('hello add solder');
+    }
+    render(){
+        return (
+            <div>
+                <button onClick={this._addSolder}>增加士兵</button>
+                <ul>
+                    {this.state.solders.map(v=>{
+                        return <li key={v}>{v}</li>
+                    })}
+                </ul>
+            </div>
+        )
+    }
+}
+
+```
 
 
 

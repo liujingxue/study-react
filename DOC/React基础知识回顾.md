@@ -116,14 +116,20 @@ class Header extends React.Component{
         this.state={
             solders:['虎子','柱子']
         }
+        //解决this的问题
+        //this.addSolder=this.addSolder.bind(this)
     }
     _addSolder(){
         console.log('hello add solder');
+        //修改状态
+        this.setState({
+            solders:[...this.state.solders,'新兵蛋子'+Math.random()]
+        })
     }
     render(){
         return (
             <div>
-                <button onClick={this._addSolder}>增加士兵</button>
+                <button onClick={()=>this._addSolder()}>增加士兵</button>
                 <ul>
                     {this.state.solders.map(v=>{
                         return <li key={v}>{v}</li>
@@ -136,5 +142,45 @@ class Header extends React.Component{
 
 ```
 
+## 五、React生命周期
+
+React组件有若干钩子函数，在组件不同的状态执行
+
+* 初始化周期
+* 组件重新渲染生命周期
+* 组件卸载生命周期
+
+```
+//组件马上就要加载了
+componentWillMount(){
+    console.log('组件马上就要加载了');
+}
+//组件加载完毕
+componentDidMount(){
+    console.log('组件加载完毕');
+}
+componentWillReceiveProps(nextProps){
+    console.log('组件要接收父组件的值了');
+}
+shouldComponentUpdate(){
+    consoloe.log('判断是不是要更新组件');
+    return true;  //记得要返回true
+}
+componentWillUpdate(){
+    console.log('马上就要更新组件了');
+}
+componentDidUpdate(){
+    console.log('组件更新完毕');
+}
+componentWillUnmount(){
+    console.log('组件卸载了');
+}
+//组件正在加载
+render(){
+    console.log('组件正在加载');
+}
+
+```
 
 
+## 六、安装

@@ -69,13 +69,11 @@ function Footer(props){
 ```
 
 
-## 组件内部state
+## 三、组件内部state
 
 组件内部通过state管理状态
 
 
-
-组件内部通过state管理状态
 
 
 

@@ -295,11 +295,175 @@ store.subscribe(render)
 * 忘记subscribe,记住reducer,action和dispatch即可
 * React-redux提供Provider和connect两个接口来链接
 
-```
-//使用
+React-redux具体使用
+* Provider组件在应用最外层，传入store即可，只用一次
+* Connect负责从外部获取组件需要的参数
+* Connect可以用装饰器的方式来写
 
 ```
+//使用react-redux
+|--src
+    |--index.redux.js
+    |--index.js
+    |--App.js
 
-## 二、Redux核心概念
+//index.redux.js,所有的方法
+const ADD = '加';
+const REMOVE = '减';
 
-## 三、Redux实战
+//reducer
+export function counter(state=0,action){
+    switch(action.type){
+        case ADD:
+            return state+1
+        case REMOVE:
+            return state-1
+        default:
+            return 10
+    }
+}
+
+//action creator
+export function add(){
+    return {type:ADD}
+}
+
+export function remove(){
+    return {type:REMOVE}
+}
+
+//异步的加
+export function addAsync(){
+    //现在可以return一个函数
+    return dispatch=>{
+        setTimeout(()=>{
+            dispatch(add())
+        },2000)
+    }
+}
+
+
+//index.js,渲染页面
+import React from 'react'
+import ReactDOM from 'react-dom'
+//applyMiddleware专门管理中间件
+//compose用于组合函数
+import {createStore,applyMiddleware,compose} from 'redux'
+import thunk from 'redux-thunk'
+import {Provider} from 'react-redux'
+import App from './App'
+import {counter} from './index.redux'
+
+//如果window.devToolsExtension存在则使用,否则是个空函数
+const reduxDevtools = window.devToolsExtension?window.devToolsExtension():f=>f
+const store = createStore(counter,compose(
+    applyMiddleware(thunk),
+    reduxDevtools
+))
+
+
+
+//使用React-redux时，只传store={store}
+ReactDOM.render(
+    (<Provider store={store}>
+        <App/>
+    </Provider>),
+    document.getElementById('root')
+)
+
+
+
+//App.js,一个组件
+import React from 'react'
+import {connect} from 'react-redux'
+import {add,remove,addAsync} from "./index.redux";
+
+class App extends React.Component{
+    render(){
+        return (
+            <div>
+                <h1>现在有枪{this.props.num}</h1>
+                <button onClick={this.props.add}>加</button>
+                <button onClick={this.props.remove}>减</button>
+                <button onClick={this.props.addAsync}>等2秒再加</button>
+            </div>
+        )
+
+
+    }
+}
+const mapStatetoProps = (state) => {
+    return {num:state}
+}
+const actionCreators = {add,remove,addAsync}
+//connect是连接
+App = connect(mapStatetoProps,actionCreators)(App)
+export default App
+
+
+```
+
+
+使用react-redux
+
+Connect可以用装饰器的方式来写
+
+使用装饰器优化connect代码
+
+* npm run eject弹出个性化配置
+* npm i babel-plugin-transform-decorators-legacy插件
+* package.json里babel加上plugins配置
+
+```
+//安装
+npm i babel-plugin-transform-decorators-legacy --save-dev
+//配置package.json
+"babel": {
+    "presets": [
+      "react-app"
+    ],
+    "plugins": [
+      [
+        "import",
+        {
+          "libraryName": "antd-mobile",
+          "style": "css"
+        }
+      ],
+      [
+        "transform-decorators-legacy"
+      ]
+    ]
+},
+
+//App.js
+import React from 'react'
+import {connect} from 'react-redux'
+import {add,remove,addAsync} from "./index.redux";
+
+const mapStatetoProps = (state) => {
+    return {num:state}
+}
+const actionCreators = {add,remove,addAsync}
+//App = connect(mapStatetoProps,actionCreators)(App)
+
+@connect(mapStatetoProps,actionCreators)
+class App extends React.Component{
+    render(){
+        return (
+            <div>
+                <h1>现在有枪{this.props.num}</h1>
+                <button onClick={this.props.add}>加</button>
+                <button onClick={this.props.remove}>减</button>
+                <button onClick={this.props.addAsync}>等2秒再加</button>
+            </div>
+        )
+
+
+    }
+}
+
+export default App
+
+```
+

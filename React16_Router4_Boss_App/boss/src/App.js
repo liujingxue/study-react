@@ -1,24 +1,27 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import {add,remove,addAsync} from "./index.redux";
+
+const mapStatetoProps = (state) => {
+    return {num:state}
+}
+const actionCreators = {add,remove,addAsync}
+//App = connect(mapStatetoProps,actionCreators)(App)
+
+@connect(mapStatetoProps,actionCreators)
 class App extends React.Component{
-    // constructor(props){
-    //     super(props)
-    // }
     render(){
-        const store = this.props.store
-        const num = store.getState()
-        const add = this.props.add
-        const remove = this.props.remove
-        const addAsync = this.props.addAsync
         return (
             <div>
-                <h1>现在有枪{num}</h1>
-                <button onClick={()=>store.dispatch(add())}>加</button>
-                <button onClick={()=>store.dispatch(remove())}>减</button>
-                <button onClick={()=>store.dispatch(addAsync())}>等2秒再加</button>
+                <h1>现在有枪{this.props.num}</h1>
+                <button onClick={this.props.add}>加</button>
+                <button onClick={this.props.remove}>减</button>
+                <button onClick={this.props.addAsync}>等2秒再加</button>
             </div>
         )
 
 
     }
 }
+
 export default App

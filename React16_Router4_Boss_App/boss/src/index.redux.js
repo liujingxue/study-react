@@ -22,3 +22,13 @@ export function add(){
 export function remove(){
     return {type:REMOVE}
 }
+
+//异步的加
+export function addAsync(){
+    //现在可以return一个函数
+    return dispatch=>{
+        setTimeout(()=>{
+            dispatch(add())
+        },2000)
+    }
+}

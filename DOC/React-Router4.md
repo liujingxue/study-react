@@ -1,0 +1,84 @@
+## 一、React-router4是什么
+
+React官方推荐路由库，4是最新版本
+
+* 4是全新的版本，和之前版本不兼容，浏览器和RN均兼容
+* React开发单页应用必备，践行路由即组件的概念
+* 核心概念：动态路由、Route、Link、Switch
+
+一个简单的例子
+
+* npm i react-router-dom --save
+* Router4使用react-router-dom作为浏览器端的路由
+
+入门组件
+
+* BrowserRouter,包裹整个应用
+* Router路由对应渲染的组件，可嵌套
+* Link跳转专用
+
+```
+//使用react-router4
+//exact表示完全匹配
+
+//index.js
+
+import React from 'react'
+import ReactDOM from 'react-dom'
+//applyMiddleware专门管理中间件
+//compose用于组合函数
+import {createStore,applyMiddleware,compose} from 'redux'
+import thunk from 'redux-thunk'
+import {Provider} from 'react-redux'
+import {BrowserRouter,Route,Link} from 'react-router-dom'
+import App from './App'
+import {counter} from './index.redux'
+
+//如果window.devToolsExtension存在则使用,否则是个空函数
+const reduxDevtools = window.devToolsExtension?window.devToolsExtension():f=>f
+const store = createStore(counter,compose(
+    applyMiddleware(thunk),
+    reduxDevtools
+))
+
+//自定义组件
+function two(){
+    return <h2>第二个组件</h2>
+}
+function three(){
+    return <h2>第三个组件</h2>
+}
+
+//使用React-redux时，只传store={store}
+ReactDOM.render(
+    (<Provider store={store}>
+        <BrowserRouter>
+            <div>
+                <ul>
+                    <li>
+                        <Link to='/'>one</Link>
+                    </li>
+                    <li>
+                        <Link to='/two'>two</Link>
+                    </li>
+                    <li>
+                        <Link to='/three'>three</Link>
+                    </li>
+                </ul>
+                <Route path='/' exact component={App}></Route>
+                <Route path='/two' component={two}></Route>
+                <Route path='/three' component={three}></Route>
+            </div>
+        </BrowserRouter>
+    </Provider>),
+    document.getElementById('root')
+)
+
+
+```
+
+
+## 二、React-router4核心概念
+
+## 三、React-router4实战
+

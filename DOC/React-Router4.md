@@ -78,7 +78,153 @@ ReactDOM.render(
 ```
 
 
-## 二、React-router4核心概念
+其他组件
+
+* url参数，Route组件参数可用冒号标识参数
+* Redirect组件 跳转
+* Switch只渲染一个子Route组件
+
+```
+//index.js,使用url参数
+
+import React from 'react'
+import ReactDOM from 'react-dom'
+//applyMiddleware专门管理中间件
+//compose用于组合函数
+import {createStore,applyMiddleware,compose} from 'redux'
+import thunk from 'redux-thunk'
+import {Provider} from 'react-redux'
+import {BrowserRouter,Route,Link} from 'react-router-dom'
+import App from './App'
+import {counter} from './index.redux'
+
+//如果window.devToolsExtension存在则使用,否则是个空函数
+const reduxDevtools = window.devToolsExtension?window.devToolsExtension():f=>f
+const store = createStore(counter,compose(
+    applyMiddleware(thunk),
+    reduxDevtools
+))
+
+//自定义组件
+class Test extends React.Component{
+    render(){
+        console.log(this.props)
+        //直接跳转到根目录
+        //this.props.history.push('/')
+        //this.props.match.params.location 获取url参数
+        return <h2>测试组件 {this.props.match.params.location}</h2>
+    }
+}
+
+
+
+//使用React-redux时，只传store={store}
+ReactDOM.render(
+    (<Provider store={store}>
+        <BrowserRouter>
+            <div>
+                <ul>
+                    <li>
+                        <Link to='/'>one</Link>
+                    </li>
+                    <li>
+                        <Link to='/two'>two</Link>
+                    </li>
+                    <li>
+                        <Link to='/three'>three</Link>
+                    </li>
+                </ul>
+                <Route path='/' exact component={App}></Route>
+                <Route path='/:location' component={Test}></Route>
+            </div>
+        </BrowserRouter>
+    </Provider>),
+    document.getElementById('root')
+)
+
+
+
+//index.js,使用Redirect跳转
+//Switch只渲染命中的第一个Route
+
+//index.js
+
+import React from 'react'
+import ReactDOM from 'react-dom'
+//applyMiddleware专门管理中间件
+//compose用于组合函数
+import {createStore,applyMiddleware,compose} from 'redux'
+import thunk from 'redux-thunk'
+import {Provider} from 'react-redux'
+import {BrowserRouter,Route,Link,Redirect,Switch} from 'react-router-dom'
+import App from './App'
+import {counter} from './index.redux'
+
+//如果window.devToolsExtension存在则使用,否则是个空函数
+const reduxDevtools = window.devToolsExtension?window.devToolsExtension():f=>f
+const store = createStore(counter,compose(
+    applyMiddleware(thunk),
+    reduxDevtools
+))
+
+//自定义组件
+function two(){
+    return <h2>第二个组件</h2>
+}
+function three(){
+    return <h2>第三个组件</h2>
+}
+
+//自定义组件
+class Test extends React.Component{
+    render(){
+        console.log(this.props)
+        //直接跳转到根目录
+        //this.props.history.push('/')
+        //this.props.match.params.location 获取url参数
+        return <h2>测试组件 {this.props.match.params.location}</h2>
+    }
+}
+
+
+
+//使用React-redux时，只传store={store}
+ReactDOM.render(
+    (<Provider store={store}>
+        <BrowserRouter>
+            <div>
+                <ul>
+                    <li>
+                        <Link to='/'>one</Link>
+                    </li>
+                    <li>
+                        <Link to='/two'>two</Link>
+                    </li>
+                    <li>
+                        <Link to='/three'>three</Link>
+                    </li>
+                </ul>
+
+                <Switch>
+                    <Route path='/' exact component={App}></Route>
+                    <Route path='/two' component={two}></Route>
+                    <Route path='/three' component={three}></Route>
+                    <Route path='/:location' component={Test}></Route>
+                    <Redirect to='/two'></Redirect>
+                </Switch>
+
+            </div>
+        </BrowserRouter>
+    </Provider>),
+    document.getElementById('root')
+)
+
+
+```
+
+
+
+## 和Redux配合，复杂Redux应用
 
 ## 三、React-router4实战
 

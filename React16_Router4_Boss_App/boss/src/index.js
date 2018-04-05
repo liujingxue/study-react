@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom'
 import {createStore,applyMiddleware,compose} from 'redux'
 import thunk from 'redux-thunk'
 import {Provider} from 'react-redux'
-import {BrowserRouter,Route,Link} from 'react-router-dom'
+import {BrowserRouter,Route,Link,Redirect,Switch} from 'react-router-dom'
 import App from './App'
 import {counter} from './index.redux'
 
@@ -24,6 +24,19 @@ function three(){
     return <h2>第三个组件</h2>
 }
 
+
+class Test extends React.Component{
+    render(){
+        console.log(this.props)
+        //直接跳转到根目录
+        //this.props.history.push('/')
+        //this.props.match.params.location 获取url参数
+        return <h2>测试组件 {this.props.match.params.location}</h2>
+    }
+}
+
+
+
 //使用React-redux时，只传store={store}
 ReactDOM.render(
     (<Provider store={store}>
@@ -40,9 +53,15 @@ ReactDOM.render(
                         <Link to='/three'>three</Link>
                     </li>
                 </ul>
-                <Route path='/' exact component={App}></Route>
-                <Route path='/two' component={two}></Route>
-                <Route path='/three' component={three}></Route>
+
+                <Switch>
+                    <Route path='/' exact component={App}></Route>
+                    <Route path='/two' component={two}></Route>
+                    <Route path='/three' component={three}></Route>
+                    <Route path='/:location' component={Test}></Route>
+                    <Redirect to='/two'></Redirect>
+                </Switch>
+
             </div>
         </BrowserRouter>
     </Provider>),

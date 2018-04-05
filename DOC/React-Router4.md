@@ -224,7 +224,7 @@ ReactDOM.render(
 
 
 
-## 和Redux配合，复杂Redux应用
+## 二、和Redux配合，复杂Redux应用
 
 ## 三、React-router4实战
 

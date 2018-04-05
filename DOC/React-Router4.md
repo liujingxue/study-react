@@ -226,5 +226,129 @@ ReactDOM.render(
 
 ## 二、和Redux配合，复杂Redux应用
 
-## 三、React-router4实战
+@connect,这种装饰器的写法，需要安装 babel-plugin-transform-decorators-legacy
+
+并且在package.json中配置
+
+npm i babel-plugin-transform-decorators-legacy --save-dev
+
+```
+//package.json配置
+"babel": {
+    "presets": [
+      "react-app"
+    ],
+    "plugins": [
+      [
+        "import",
+        {
+          "libraryName": "antd-mobile",
+          "style": "css"
+        }
+      ],
+      [
+        "transform-decorators-legacy"
+      ]
+    ]
+},
+
+```
+
+和redux配合
+
+* 复杂redux应用，多个reducer,用combineReducers合并
+* Redirect组件 跳转
+* Switch只渲染一个子Route组件
+
+```
+//简单demo
+
+//index.js
+
+import React from 'react'
+import ReactDOM from 'react-dom'
+//applyMiddleware专门管理中间件
+//compose用于组合函数
+import {createStore,applyMiddleware,compose} from 'redux'
+import thunk from 'redux-thunk'
+import {Provider} from 'react-redux'
+import {BrowserRouter,Route,Redirect,Switch} from 'react-router-dom'
+import {reducers} from './reducer'
+import Auth from './Auth'
+import Dashboard from './Dashboard'
+
+
+//如果window.devToolsExtension存在则使用,否则是个空函数
+const reduxDevtools = window.devToolsExtension?window.devToolsExtension():f=>f
+const store = createStore(reducers,compose(
+    applyMiddleware(thunk),
+    reduxDevtools
+))
+
+
+//使用React-redux时，只传store={store}
+ReactDOM.render(
+    (<Provider store={store}>
+        <BrowserRouter>
+
+            <Switch>
+                <Route path='/login' component={Auth}></Route>
+                <Route path='/dashboard' component={Dashboard}></Route>
+                <Redirect to='/dashboard'></Redirect>
+            </Switch>
+
+        </BrowserRouter>
+    </Provider>),
+    document.getElementById('root')
+)
+
+
+
+//Dashboard.js
+
+import React from 'react'
+import {Link,Route} from 'react-router-dom'
+import App from './App'
+
+//自定义组件
+function two(){
+    return <h2>第二个组件</h2>
+}
+function three(){
+    return <h2>第三个组件</h2>
+}
+
+class Dashboard extends React.Component{
+    constructor(props){
+        super(props)
+    }
+    render(){
+        const match = this.props.match
+        return (
+            <div>
+                <ul>
+                    <li>
+                        <Link to={`${match.url}/`}>one</Link>
+                    </li>
+                    <li>
+                        <Link to={`${match.url}/two`}>two</Link>
+                    </li>
+                    <li>
+                        <Link to={`${match.url}/three`}>three</Link>
+                    </li>
+                </ul>
+                <Route path={`${match.url}/`} exact component={App}></Route>
+                <Route path={`${match.url}/two`} component={two}></Route>
+                <Route path={`${match.url}/three`} component={three}></Route>
+            </div>
+        )
+    }
+}
+
+export default Dashboard
+
+
+```
+
+
 

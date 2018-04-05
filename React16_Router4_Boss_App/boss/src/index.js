@@ -5,35 +5,33 @@ import ReactDOM from 'react-dom'
 import {createStore,applyMiddleware,compose} from 'redux'
 import thunk from 'redux-thunk'
 import {Provider} from 'react-redux'
-import {BrowserRouter,Route,Link,Redirect,Switch} from 'react-router-dom'
-import App from './App'
-import {counter} from './index.redux'
+import {BrowserRouter,Route,Redirect,Switch} from 'react-router-dom'
+import {reducers} from './reducer'
+import Auth from './Auth'
+import Dashboard from './Dashboard'
+
 
 //如果window.devToolsExtension存在则使用,否则是个空函数
 const reduxDevtools = window.devToolsExtension?window.devToolsExtension():f=>f
-const store = createStore(counter,compose(
+const store = createStore(reducers,compose(
     applyMiddleware(thunk),
     reduxDevtools
 ))
 
-//自定义组件
-function two(){
-    return <h2>第二个组件</h2>
-}
-function three(){
-    return <h2>第三个组件</h2>
-}
 
 
-class Test extends React.Component{
-    render(){
-        console.log(this.props)
-        //直接跳转到根目录
-        //this.props.history.push('/')
-        //this.props.match.params.location 获取url参数
-        return <h2>测试组件 {this.props.match.params.location}</h2>
-    }
-}
+
+// class Test extends React.Component{
+//     render(){
+//         console.log(this.props)
+//         //直接跳转到根目录
+//         //this.props.history.push('/')
+//         //this.props.match.params.location 获取url参数
+//         return <h2>测试组件 {this.props.match.params.location}</h2>
+//     }
+// }
+
+
 
 
 
@@ -41,28 +39,13 @@ class Test extends React.Component{
 ReactDOM.render(
     (<Provider store={store}>
         <BrowserRouter>
-            <div>
-                <ul>
-                    <li>
-                        <Link to='/'>one</Link>
-                    </li>
-                    <li>
-                        <Link to='/two'>two</Link>
-                    </li>
-                    <li>
-                        <Link to='/three'>three</Link>
-                    </li>
-                </ul>
 
-                <Switch>
-                    <Route path='/' exact component={App}></Route>
-                    <Route path='/two' component={two}></Route>
-                    <Route path='/three' component={three}></Route>
-                    <Route path='/:location' component={Test}></Route>
-                    <Redirect to='/two'></Redirect>
-                </Switch>
+            <Switch>
+                <Route path='/login' component={Auth}></Route>
+                <Route path='/dashboard' component={Dashboard}></Route>
+                <Redirect to='/dashboard'></Redirect>
+            </Switch>
 
-            </div>
         </BrowserRouter>
     </Provider>),
     document.getElementById('root')

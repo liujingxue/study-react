@@ -50,7 +50,93 @@ console.log(store.getState()); //10
 
 Redux如何和React一起用
 
-* 把
+* 把store.dispatch方法传递给组件，内部可以调用修改状态
+* Subscribe订阅render函数，每次修改都重新渲染
+* Redux相关内容，移到单独的文件index.redux.js单独管理
+
+```
+//分成三个组件
+|--src
+    |--index.redux.js
+    |--index.js
+    |--App.js
+
+//index.redux.js , 专门用于存放方法
+const ADD = '加';
+const REMOVE = '减';
+
+
+//reducer
+export function counter(state=0,action){
+    switch(action.type){
+        case ADD:
+            return state+1
+        case REMOVE:
+            return state-1
+        default:
+            return 10
+    }
+}
+
+//action creator
+export function add(){
+    return {type:ADD}
+}
+
+export function remove(){
+    return {type:REMOVE}
+}
+
+
+//index.js, 用于订阅和渲染页面
+import React from 'react'
+import ReactDOM from 'react-dom'
+import {createStore} from 'redux'
+import App from './App'
+import {counter,add,remove} from './index.redux'
+
+const store = createStore(counter)
+
+//把add方法和remove方法以属性的方式传递给App.js组件
+function render(){
+    ReactDOM.render(<App store={store} add={add} remove={remove}/>,document.getElementById('root'))
+}
+render()
+//订阅一下，状态改变每次都执行一下render
+store.subscribe(render)
+
+
+//App.js,作为一个组件
+import React from 'react'
+class App extends React.Component{
+    // constructor(props){
+    //     super(props)
+    // }
+    render(){
+        const store = this.props.store
+        const num = store.getState()
+        const add = this.props.add
+        const remove = this.props.remove
+        return (
+            <div>
+                <h1>现在有枪{num}</h1>
+                <button onClick={()=>store.dispatch(add())}>加</button>
+                <button onClick={()=>store.dispatch(remove())}>减</button>
+            </div>
+        )
+
+
+    }
+}
+export default App
+
+```
+
+
+现在都是同步形式，更进一步，让Redux可以处理异步
+
+处理异步、调试工具、更优雅的和react结合
+
 
 
 

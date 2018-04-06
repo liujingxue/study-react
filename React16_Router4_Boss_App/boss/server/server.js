@@ -9,6 +9,33 @@ mongoose.connection.on('connected',function(){
     console.log('mongo connect success')
 })
 
+const User = mongoose.model('user',new mongoose.Schema({
+    user:{type:String,require:true},
+    age:{type:Number,require:true}
+}))
+
+//新建
+// User.create({
+//     user:'js',
+//     age:18
+// },function(err,doc){
+//     if(!err){
+//         console.log(doc)
+//     }else{
+//         console.log(err)
+//     }
+// })
+
+//删除数据
+// User.remove({age:18},function(err,doc){
+//     console.log(doc);
+// })
+
+//更新数据
+// User.update({'user':'js'},{'$set':{age:16}},function(err,doc){
+//     console.log(doc);
+// })
+
 //新建app
 const app = express()
 
@@ -17,7 +44,10 @@ app.get('/',function(req,res){
 })
 
 app.get('/data',function(req,res){
-    res.json({name:'hello',type:'1'})
+    //查询数据
+    User.find({user:'js'},function(err,doc){
+        res.json(doc)
+    })
 })
 
 app.listen(9093,function(){

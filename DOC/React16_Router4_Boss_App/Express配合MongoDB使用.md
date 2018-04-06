@@ -269,3 +269,8 @@ User.findOne({user:'js'},function(err,doc){
 })
 
 ```
+
+## Express和mongodb结合
+
+* express使用body-parser支持post参数
+* 使用cookie-parser存储登录信息cookie

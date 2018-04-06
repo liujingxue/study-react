@@ -13,16 +13,6 @@
 
 ## MongoDB的环境配置
 
-首先，我们在bin目录下创建一个名为"mongod.config"的文件，在里面输入
-
-```
-##database directory
-dbpath=e:\MongoDB\data
-##log file
-logpath=e:\MongoDB\log
-```
-然后保存该文件，请继续往下看。
-
 一、直接将MongoDB配置为服务
 
 (这样做的好处是：免去了每次启动需要输入数据路径，为了方便，可以将启动数据库写成window服务的方式。)
@@ -46,8 +36,6 @@ mongo
 
 
 ## 怎么配置环境变量
-
-配置完之后，怎么启动
 
 配置完之后，启动
 

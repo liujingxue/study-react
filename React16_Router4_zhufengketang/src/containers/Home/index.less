@@ -1,0 +1,54 @@
+.home-header{
+  height: 56px;
+  line-height: 56px;
+  position: fixed;
+  left:0;
+  top:0;
+  width:100%;
+  z-index:2;
+  background-color:#2a2a2a;
+  .home-header-top{
+    img{
+      width: 90px;height:32px;margin-top:12px;margin-left:10px;
+    }
+  }
+  .home-header-btn{
+    float:right;
+    margin-right:10px;
+    overflow:hidden;
+  }
+}
+
+.header-list{
+  display:inline-block;
+  width: 20px;
+  height: 20px;
+  margin-top:18px;
+  background:url("/src/static/images/list.png") no-repeat;
+  background-size: 100% 100%;
+}
+
+.header-delete{
+  display:inline-block;
+  width: 20px;
+  height: 20px;
+  margin-top:18px;
+  background:url("/src/static/images/delete.png") no-repeat;
+  background-size: 100% 100%;
+}
+
+
+/** 下拉的列表 **/
+.home-header-list{
+  position: absolute;
+  top:50px;
+  left:0;
+  width:100%;
+  background-color:#2a2a2a;
+  li{
+    color:#fff;
+    text-align: center;
+    line-height: 46px;
+    border-top:1px solid #464646;
+  }
+}

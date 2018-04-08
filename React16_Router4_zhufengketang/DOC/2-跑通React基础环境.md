@@ -30,7 +30,7 @@ React16_Router4_zhufengketang
 ## 安装React
 
 ```
-npm i react react-dom redux react-redux react-router-dom redux-logger redux-thunk redux-promise axios --save
+npm i react react-dom redux react-redux react-router-dom redux-logger redux-thunk redux-promise less axios --save
 ```
 
 ## Home.js文件
@@ -190,6 +190,7 @@ module.exports = {
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "less": "^3.0.1",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-redux": "^5.0.7",

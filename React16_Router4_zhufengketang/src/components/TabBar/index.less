@@ -1,0 +1,57 @@
+.nav-bar{
+  height:53px;
+  position: fixed;
+  left:0;
+  bottom:0;
+  width:100%;
+  border-top:1px solid #d5d5d5;
+  display: flex;
+  a{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    span{
+      font-size: 12px;
+      margin-top:5px;
+    }
+  }
+  a.active{
+    color:#1296db;
+  }
+  a.active > .home-icon{
+    background:url(/src/static/images/home-blue.png) no-repeat;
+    background-size: 100% 100%;
+  }
+
+  a.active > .lesson-icon{
+    background:url(/src/static/images/lesson-blue.png) no-repeat;
+    background-size: 100% 100%;
+  }
+
+  a.active > .profile-icon{
+    background:url(/src/static/images/profile-blue.png) no-repeat;
+    background-size: 100% 100%;
+  }
+
+}
+
+/** 图标 **/
+.tabbar-icon{
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+}
+.home-icon{
+  background:url(/src/static/images/home.png) no-repeat;
+  background-size: 100% 100%;
+}
+.lesson-icon{
+  background:url(/src/static/images/lesson.png) no-repeat;
+  background-size: 100% 100%;
+}
+.profile-icon{
+  background:url(/src/static/images/profile.png) no-repeat;
+  background-size: 100% 100%;
+}

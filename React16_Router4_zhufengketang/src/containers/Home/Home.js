@@ -4,6 +4,9 @@ import './index.less'
 import actions from '../../store/actions/home'
 import {connect} from 'react-redux'
 class Home extends React.Component{
+    componentDidMount(){
+        this.props.setSliders()
+    }
     changeSonType=(value)=>{ //传给子组件。
         //可以拿到子页面的参数。可以拿到点击的是那个。
         // console.log(value);

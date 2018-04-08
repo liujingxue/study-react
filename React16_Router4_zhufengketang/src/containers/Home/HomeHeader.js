@@ -20,6 +20,12 @@ class HomeHeader extends React.Component{
             isShow:!this.state.isShow
         })
     }
+    changeType=(e)=>{
+        // console.log(e.target.dataset.type)
+        //传给父组件
+        this.props.changeSonType(e.target.dataset.type)
+        this.changeShow()
+    }
     render(){
         return (
             <div className="home-header">
@@ -38,10 +44,11 @@ class HomeHeader extends React.Component{
 
                     {
                         (state)=>(
-                            <ul className="home-header-list" style={{...defaultStyle,...transitionStyles[state]}}>
-                                <li>全部课程</li>
-                                <li>react课程</li>
-                                <li>vue课程</li>
+                            <ul className="home-header-list" style={{...defaultStyle,...transitionStyles[state]}}
+                            onClick={this.changeType.bind(this)}>
+                                <li data-type="0">全部课程</li>
+                                <li data-type="1">react课程</li>
+                                <li data-type="2">vue课程</li>
                             </ul>
                         )
                     }

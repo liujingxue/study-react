@@ -9,6 +9,12 @@ let action = {
             action.setLessons()(dispatch,getState) //根据最新类型的改变数据
         }
     },
+    refresh(){
+        return (dispatch,getState)=>{
+            dispatch({type:Types.CLEAR_LESSONS})
+            action.setLessons()(dispatch,getState)
+        }
+    },
     setSliders(){
         return (dispatch)=>{ //dispatch是中间件包装后的dispatch
             dispatch({type:Types.GET_SLIDERS});  //将redux中数据状态改变成正在加载

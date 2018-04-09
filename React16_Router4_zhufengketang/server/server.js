@@ -23,12 +23,14 @@ app.get('/lessons',function(req,res){
     offset = parseInt(offset)
     console.log(limit,offset);
     let newLessons = lessons.filter(item=>{
-        if(type === 0)return true;
+        if(type === '0')return true;
         return item.type === type;
     })
+    // console.log(newLessons);
     //这里面要判断一下 服务端是否有更多数据 hasMore
     let hasMore = true
     let len = newLessons.length; //获取数据的总长
+
     if(len<offset+limit){        //没有更多了
         hasMore = false
     }

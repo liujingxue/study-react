@@ -32,6 +32,16 @@ export default function home(state=initState,action){
                 list:[...state.lesson.list,...action.payload.list],
                 offset:state.lesson.offset+action.payload.list.length
             }}
+        case Types.CLEAR_LESSONS:
+            return {
+                ...state,lesson:{
+                    ...state.lesson,
+                    offset:0,
+                    list:[],
+                    loading:false,
+                    hasMore:true
+                }
+            }
     }
     return state;
 }

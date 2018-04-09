@@ -3,7 +3,11 @@ import * as Types from '../action-types'
 import {getSliders,getLessons} from '../../api/home'
 let action = {
     setCurrentLesson(lessontype){
-        return {type:Types.SET_CURRENT_LESSON,lesson:lessontype}
+        return (dispatch,getState)=>{
+            dispatch({type:Types.SET_CURRENT_LESSON,lesson:lessontype})
+            dispatch({type:Types.CLEAR_LESSONS})  //清除原有的数据
+            action.setLessons()(dispatch,getState) //根据最新类型的改变数据
+        }
     },
     setSliders(){
         return (dispatch)=>{ //dispatch是中间件包装后的dispatch

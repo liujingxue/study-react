@@ -3,6 +3,7 @@ import HomeHeader from "./HomeHeader"
 import './index.less'
 import actions from '../../store/actions/home'
 import {connect} from 'react-redux'
+import HomeSlider from './HomeSlider'
 class Home extends React.Component{
     componentDidMount(){
         this.props.setSliders()
@@ -17,7 +18,7 @@ class Home extends React.Component{
             <div>
                 <HomeHeader changeSonType={this.changeSonType}/>
                 <div className="content">
-                    轮播图
+                    {!this.props.slider.loading?<HomeSlider lists={this.props.slider.list} />:<div>正在加载中</div>}
                 </div>
             </div>
         )

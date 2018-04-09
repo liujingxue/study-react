@@ -52,3 +52,30 @@
     border-top:1px solid #464646;
   }
 }
+
+
+/** 轮播图外套 **/
+.home-slider{
+  position: relative;
+  height: 170px;
+  img{height:100%;}
+  div{height:100%;}
+  .home-slider-dots{
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    text-align: center;
+    width: 100%;
+    li{
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius:50%;
+      margin:10px;
+      background-color:#fff;
+    }
+    li.active{
+      background-color:#1296db;
+    }
+  }
+}

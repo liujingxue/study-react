@@ -23,7 +23,7 @@ app.get('/lessons',function(req,res){
     offset = parseInt(offset)
     lessons.filter(item=>{
         if(type === 0)return true;
-        
+
     })
 })
 

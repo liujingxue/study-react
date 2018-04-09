@@ -25,5 +25,23 @@ module.exports = [
         url:"http://www.zhufengpeixun.com/videoCourse/images/video_react.png",
         price:"￥300.00元",
         type:'1'
+    },
+    {
+        id:4,
+        title:'React全栈架构',
+        video:"http://7xil5b.com1.z0.glb.clouddn.com/zhufengpeixun.mp4",
+        poster:"http://www.zhufengpeixun.cn/react/img/react.jpg",
+        url:"http://www.zhufengpeixun.com/videoCourse/images/video_react.png",
+        price:"￥400.00元",
+        type:'1'
+    },
+    {
+        id:5,
+        title:'React全栈架构',
+        video:"http://7xil5b.com1.z0.glb.clouddn.com/zhufengpeixun.mp4",
+        poster:"http://www.zhufengpeixun.cn/react/img/react.jpg",
+        url:"http://www.zhufengpeixun.com/videoCourse/images/video_react.png",
+        price:"￥500.00元",
+        type:'1'
     }
 ]

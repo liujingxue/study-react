@@ -7,7 +7,7 @@ class HomeSlider extends React.Component{
         this.state = {index:0}
     }
     render(){
-        console.log(this.props.lists);
+        // console.log(this.props.lists);
         let opts = {continuous:true,auto:3000,transitionEnd:(index)=>{
             // console.log(index)
             this.setState({index})

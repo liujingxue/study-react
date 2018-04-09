@@ -21,10 +21,19 @@ app.get('/lessons',function(req,res){
     let {limit,offset,type} = req.query
     limit = parseInt(limit)
     offset = parseInt(offset)
-    lessons.filter(item=>{
+    console.log(limit,offset);
+    let newLessons = lessons.filter(item=>{
         if(type === 0)return true;
-
+        return item.type === type;
     })
+    //这里面要判断一下 服务端是否有更多数据 hasMore
+    let hasMore = true
+    let len = newLessons.length; //获取数据的总长
+    if(len<offset+limit){        //没有更多了
+        hasMore = false
+    }
+    newLessons = newLessons.slice(offset,offset+limit) //获取的数据
+    res.json({hasMore,list:newLessons})
 })
 
 app.listen(3000)

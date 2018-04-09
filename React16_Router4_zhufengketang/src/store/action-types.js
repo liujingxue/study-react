@@ -11,3 +11,6 @@ export const GET_LESSONS_SUCCESS = 'GET_LESSONS_SUCCESS'
 //清除课程
 export const CLEAR_LESSONS = 'CLEAR_LESSONS'
 
+//设置用户信息
+export const SET_USER_INFO = 'SET_USER_INFO'
+

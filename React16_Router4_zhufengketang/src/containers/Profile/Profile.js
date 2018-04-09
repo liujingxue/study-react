@@ -1,6 +1,7 @@
 import React from 'react'
 import './index.less'
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
 class Profile extends React.Component{
     render(){
         return (
@@ -10,10 +11,10 @@ class Profile extends React.Component{
                     <div className="avatar">
                         <img src="/src/static/images/avatar.png" alt="" />
                     </div>
-                    <Link to="/login" className="btn">登录</Link>
+                    {this.props.user?<a className="btn">{this.props.user}</a>:<Link to="/login" className="btn">登录</Link>}
                 </div>
             </div>
         )
     }
 }
-export default Profile
+export default connect(state=>({...state.session}))(Profile)

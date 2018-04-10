@@ -11,6 +11,7 @@ import './static/css/common/index.less'
 import store from './store/index'
 import {Provider} from 'react-redux'
 import PrivateRoute from './PrivateRoute'
+import Detail from './containers/Detail/Detail'
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
@@ -22,6 +23,7 @@ ReactDOM.render(
                     <PrivateRoute path='/lesson' component={Lesson}></PrivateRoute>
                     <Route path='/login' component={Login}></Route>
                     <Route path='/reg' component={Reg}></Route>
+                    <Route path='/detail/:id' component={Detail}></Route>
                 </Switch>
                 <TabBar/>
             </div>

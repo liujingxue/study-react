@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 class HomeList extends React.Component{
     render(){
         console.log(this.props.lists);
@@ -7,9 +8,11 @@ class HomeList extends React.Component{
                 <ul>
                     {this.props.lists.map((item,index)=>(
                         <li key={index}>
-                            <img src={item.url} alt=""/>
-                            <p>{item.title}</p>
-                            <span>{item.price}</span>
+                            <Link to={{pathname:'/detail/'+item.id,state:item}}>
+                                <img src={item.url} alt=""/>
+                                <p>{item.title}</p>
+                                <span>{item.price}</span>
+                            </Link>
                         </li>
                     ))}
                 </ul>

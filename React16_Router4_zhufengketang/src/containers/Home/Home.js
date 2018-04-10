@@ -9,8 +9,12 @@ import {loadMore,pullRefresh} from "../../util"
 import Loading from "../../components/Loading/Loading";
 class Home extends React.Component{
     componentDidMount(){
-        this.props.setSliders()
-        this.props.setLessons() //获取课程信息
+        if(!this.props.slider.list.length){
+            this.props.setSliders()
+        }
+        if(!this.props.lesson.list.length){
+            this.props.setLessons() //获取课程信息
+        }
         loadMore(this.x,this.props.setLessons)
         pullRefresh(this.x,this.props.refresh)
     }

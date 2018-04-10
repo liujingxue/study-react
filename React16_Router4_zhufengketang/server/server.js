@@ -76,7 +76,14 @@ app.post('/reg',function(req,res){
     }
 })
 
-
+//校验用户登录信息
+app.get('/validate',function(req,res){
+    if(req.session.user){
+        res.json({msg:'',err:0,user:req.session.user.username})
+    }else{
+        res.json({msg:'',err:0,user:null})
+    }
+})
 
 app.listen(3000)
 

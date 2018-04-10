@@ -2,7 +2,11 @@ import React from 'react'
 import './index.less'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
+import actions from '../../store/actions/session'
 class Profile extends React.Component{
+    componentDidMount(){
+        this.props.toValidate()
+    }
     render(){
         return (
             <div className="profile">
@@ -17,4 +21,4 @@ class Profile extends React.Component{
         )
     }
 }
-export default connect(state=>({...state.session}))(Profile)
+export default connect(state=>({...state.session}),actions)(Profile)

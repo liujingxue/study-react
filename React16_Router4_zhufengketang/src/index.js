@@ -10,6 +10,7 @@ import TabBar from "./components/TabBar/TabBar";
 import './static/css/common/index.less'
 import store from './store/index'
 import {Provider} from 'react-redux'
+import PrivateRoute from './PrivateRoute'
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
@@ -17,7 +18,8 @@ ReactDOM.render(
                 <Switch>
                     <Route path='/home' exact component={Home}></Route>
                     <Route path='/profile' component={Profile}></Route>
-                    <Route path='/lesson' component={Lesson}></Route>
+                    {/*lesson进行权限校验,如果没权限需要跳转到login进行登录,成功后再跳回来*/}
+                    <PrivateRoute path='/lesson' component={Lesson}></PrivateRoute>
                     <Route path='/login' component={Login}></Route>
                     <Route path='/reg' component={Reg}></Route>
                 </Switch>

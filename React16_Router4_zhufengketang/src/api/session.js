@@ -11,3 +11,8 @@ export let login = (userInfo) =>{
 export let reg = (userInfo) =>{
     return axios.post('/reg',userInfo)
 }
+
+//校验
+export let validate = () =>{
+    return axios.get('/validate')
+}

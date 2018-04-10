@@ -3,6 +3,7 @@ import './index.less'
 import Header from "../../components/Header/Header";
 import {connect} from 'react-redux'
 import actions from '../../store/actions/session'
+import Alert from "../../components/Alert/Alert"
 class Reg extends React.Component{
     reg(){
         this.props.toReg({username:this.username.value,password:this.password.value},this.props.history.push)
@@ -15,6 +16,7 @@ class Reg extends React.Component{
                     <li><input type="text" ref={(username)=>this.username=username}/></li>
                     <li><input type="text" ref={(password)=>this.password=password}/></li>
                     <li><button onClick={this.reg.bind(this)}>注册</button></li>
+                    <li><Alert/></li>
                 </ul>
             </div>
         )

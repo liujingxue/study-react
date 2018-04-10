@@ -17,7 +17,9 @@ ReactDOM.render(
         <BrowserRouter>
             <div>
                 <Switch>
-                    <Route path='/home' exact component={Home}></Route>
+                    {/*默认跳转到Home*/}
+                    <Route path='/' exact component={Home}></Route>
+                    <Route path='/home' component={Home}></Route>
                     <Route path='/profile' component={Profile}></Route>
                     {/*lesson进行权限校验,如果没权限需要跳转到login进行登录,成功后再跳回来*/}
                     <PrivateRoute path='/lesson' component={Lesson}></PrivateRoute>

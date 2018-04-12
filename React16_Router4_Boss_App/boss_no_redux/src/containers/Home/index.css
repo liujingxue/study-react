@@ -1,0 +1,19 @@
+body{
+    font-family: "Microsoft YaHei";
+}
+
+.Home{
+    color:red;
+}
+
+
+/** 头部 **/
+.am-navbar{
+    background-color:#2a2a2a !important;
+}
+
+/** 列表按钮 **/
+.nav-icon{
+    width: 20px;
+    height: 20px;
+}

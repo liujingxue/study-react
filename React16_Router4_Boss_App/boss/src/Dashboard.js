@@ -11,9 +11,9 @@ function three(){
 }
 
 class Dashboard extends React.Component{
-    constructor(props){
-        super(props)
-    }
+    // constructor(props){
+    //     super(props)
+    // }
     render(){
         const match = this.props.match
         return (

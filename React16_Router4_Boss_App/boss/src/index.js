@@ -6,14 +6,14 @@ import {createStore,applyMiddleware,compose} from 'redux'
 import thunk from 'redux-thunk'
 import {Provider} from 'react-redux'
 import {BrowserRouter,Route,Redirect,Switch} from 'react-router-dom'
-import {reducers} from './reducer'
+import reducer from './reducer'
 import Auth from './Auth'
 import Dashboard from './Dashboard'
 
 
 //如果window.devToolsExtension存在则使用,否则是个空函数
 const reduxDevtools = window.devToolsExtension?window.devToolsExtension():f=>f
-const store = createStore(reducers,compose(
+const store = createStore(reducer,compose(
     applyMiddleware(thunk),
     reduxDevtools
 ))

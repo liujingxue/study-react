@@ -18,6 +18,8 @@ app.set('views','tpl')
 //配置默认后缀名
 app.set('view engine','html')
 
+app.use(express.static('static'))
+
 // localhost:8099/user/login
 app.use('/user',user)
 

@@ -1,6 +1,8 @@
 
 ## 使用bodyParser
 
+解析表单 application/x-www-form-urlencoded
+
 bodyParser.urlencoded({extended:false}) 会自动将请求头的表单格式进行转化
 
 app.use(bodyParser.urlencoded({extended:false}))  // 接受表单元素

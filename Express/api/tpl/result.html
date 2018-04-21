@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Title</title>
+    <link rel="stylesheet" href="http://localhost:8099/css/mui.min.css">
+</head>
+<body>
+<%include ./component/header.ejs%>
+<header class="mui-bar mui-bar-nav">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title">result</h1>
+</header>
+
+<div class="mui-content">
+    <div class="mui-content-padded" style="margin: 50px 20px 20px 20px;">
+
+        <%=username%>
+        <%=password%>
+
+        <%arr.forEach((item)=>{%>
+        <li><%=item%></li>
+        <%})%>
+
+        <%arr.map((item)=>{%>
+        <li><%=item+1%></li>
+        <%})%>
+
+        <%-html%>
+
+    </div>
+</div>
+
+
+<script src="./../static/script/mui.min.js"></script>
+<script>
+    mui.init({
+        swipeBack: true //启用右滑关闭功能
+    });
+</script>
+</body>
+</html>

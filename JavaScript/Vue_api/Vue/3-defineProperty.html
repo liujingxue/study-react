@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<input type="text" id="input" />
+
+<script>
+    let obj = {}
+    let temp = {}
+
+    Object.defineProperty(obj,'username',{   // 给obj加上一个 username属性,   value表示 username的值
+        get(){   // 取obj的username属性会触发
+            return temp["username"]      // obj.username == 1
+        },
+        set(val){   // 给obj赋值,会触发set方法
+            console.log(val)
+            temp["username"] = val   // 改变temp的结果
+            input.value = val        // 将值赋予输入框
+        }
+    })
+
+    input.value = obj.username     //页面一加载时，会调用get方法
+
+    input.addEventListener('input',function(){  // 等待输入框的变化
+        obj.username = this.value
+    })
+</script>
+
+</body>
+</html>

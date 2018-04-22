@@ -1,24 +1,3 @@
-
-## 初始化
-
-vue不要挂载到html或者body上
-
-可以挂载到div上
-
-<div id="app"></div>
-
-
-## {{}}
-
-{{}} 可以放赋值，取值，三元
-
-{{msg === 'js'?1:0}}
-
-
-## helloworld
-
-```
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -33,6 +12,13 @@ vue不要挂载到html或者body上
 <div id="app">
     <!-- 小胡子语法 -->
     {{msg}}
+
+    <!-- 表单元素 input checkbox textarea radio select -->
+    <!-- vue的指令 directive ,只是dom上的行间属性 -->
+    <!-- vue给这类属性赋予了一定的意义, 来实现特殊的功能 -->
+    <!-- 所有指令都以 v- 开头 -->
+
+    <input type="text" v-model="msg" />
 </div>
 
 
@@ -49,5 +35,3 @@ vue不要挂载到html或者body上
 </script>
 </body>
 </html>
-
-```

@@ -1,0 +1,18 @@
+[
+  {
+    "isSelected":true,
+    "productCover": "http://www.chenxingplan.com/upload/userImg/4e1f54b74d6a46248c6685c17cdd1958.png",
+    "productName": "深入浅出Node.js",
+    "productInfo": "颜色：Node.js学习",
+    "productPrice": 57.8,
+    "productCount": 3
+  },
+  {
+    "isSelected":true,
+    "productCover": "http://www.chenxingplan.com/upload/userImg/3ff277aa77734f68b32a486771b12dbb.jpg",
+    "productName": "深入浅出Node.js",
+    "productInfo": "颜色：Node.js学习",
+    "productPrice": 57.8,
+    "productCount": 3
+  }
+]

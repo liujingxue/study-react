@@ -29,10 +29,10 @@ for(let val of arr){
     console.log(val)
 }
 
-//对象是不能被遍历的
-//Object.keys将对象的key作为新的数组
+// 对象是不能被遍历的
+// Object.keys将对象的key作为新的数组
 let obj = {school:'js',age:8}
 for(let val of Object.keys(obj)){
-    console.log(val)  // school age
-    console.log(obj[val]) // js  8
+    console.log(val)         // school age
+    console.log(obj[val])    // js  8
 }

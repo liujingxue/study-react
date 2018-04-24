@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    {{a.school}}
+</div>
+
+<script src="./../node_modules/vue/dist/vue.js"></script>
+<script>
+    let vm = new Vue({
+        el:'#app',
+        data:{
+            a:{}
+        }
+    })
+    vm.$set(vm.a,'school',1)
+
+    vm.a = {school:'js',age:8,address:'beijing'}
+</script>
+</body>
+</html>

@@ -13,19 +13,26 @@
     <!-- 小胡子语法 -->
     {{msg}}
 
+    <input type="text" v-model="msg" />
 
+    <div v-text="msg"></div>
 
+    <div v-once>
+        {{msg}}
+    </div>
 
+    <div v-html="ahtml"></div>
 </div>
 
 
 <script src="./../node_modules/vue/dist/vue.js"></script>
 <script>
     //引入vue后会白给你一个Vue构造函数
-    let vm = new Vue({  // vm == viewModel
+    let vm = new Vue({       // vm == viewModel
         el:'#app',           //告诉vue能管理哪个部分,querySelector
-        data:{          // data中的数据会被vm所代理
-            msg:'js'    //可以通过vm.msg取到对应的内容
+        data:{               // data中的数据会被vm所代理
+            msg:'js',         //可以通过vm.msg取到对应的内容
+            ahtml: '<h1>hello</h1>'
         }
     })
 

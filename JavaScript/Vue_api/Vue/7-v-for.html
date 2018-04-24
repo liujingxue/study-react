@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <ul>
+        <li v-for="(newArr1,index) in arr1">{{newArr1.name}} {{index}}</li>
+    </ul>
+    <ul>
+        <li v-for="(newArr1,index) of arr1">{{newArr1.name}} {{index+1}}</li>
+    </ul>
+    <ul>
+        <li v-for="(newArr1,index) in arr1">
+            {{index+1}}.{{newArr1.name}}
+            <ul>
+                <li v-for="(color,newIndex) in newArr1.color">{{index+1}}.{{newIndex+1}} {{color}}</li>
+            </ul>
+        </li>
+    </ul>
+
+    <div v-for="(value,key,index) in obj1">{{key}}:{{value}}:{{index}}</div>
+</div>
+
+<script src="./../node_modules/vue/dist/vue.js"></script>
+<script>
+    let vm = new Vue({
+        el:'#app',
+        data:{
+            obj1:{name:'js',age:8,address:'nanjing'},
+            arr1:[
+                {name:'apple',color:['green','red']},
+                {name:'orange',color:['green','yellow']},
+                {name:'js',color:['blue']}
+            ]
+        }
+    })
+</script>
+</body>
+</html>

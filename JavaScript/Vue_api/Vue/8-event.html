@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<div id="app">
+    <div @click="login($event,123)">点我啊</div>
+</div>
+
+<script src="./../node_modules/vue/dist/vue.js"></script>
+<script>
+
+    let vm = new Vue({
+        el:'#app',
+        methods:{      // methods和data中的数据会全部放到vm上
+            login(event,a){
+                console.log(event)  // MouseEvent
+                console.log(a)      // 123
+            }
+        },
+        data:{
+
+        }
+    })
+</script>
+</body>
+</html>

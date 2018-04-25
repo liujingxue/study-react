@@ -70,3 +70,43 @@ buyPack().then(function(data){
 })
 
 ```
+
+
+## 自己封装一个基于Promise的ajax方法
+
+```
+
+function ajax({url='',type='get',dataType='json'}){
+    return new Promise((resolve,reject)=>{
+        let xhr = new XMLHttpRequest()
+        xhr.open(type,url,true)
+        xhr.responseType = dataType
+        xhr.onload = function(){     // xhr.readState=4 , xhr.status =200
+            resolve(xhr.response)    // 成功调用成功的方法
+        }
+        xhr.onerror = function(err){
+            reject(err)              // 失败调用失败的方法
+        }
+        xhr.send()
+    })
+}
+
+// 使用
+<script src="./../js/7-promise-ajax.js"></script>
+
+let vm = new Vue({
+    el:'#app',
+    created(){
+        ajax({url:'./data/carts.json'}).then((res)=>{
+            console.log(res);
+        },(err)=>{
+
+        })
+    },
+    data:{
+       
+    }
+})
+
+
+```

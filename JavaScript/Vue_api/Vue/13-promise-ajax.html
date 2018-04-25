@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+
+</div>
+
+<script src="./../node_modules/vue/dist/vue.js"></script>
+<script src="./../js/7-promise-ajax.js"></script>
+<script>
+    let vm = new Vue({
+        el:'#app',
+        created(){
+            ajax({url:'./data/carts.json'}).then((res)=>{
+                console.log(res);
+            },(err)=>{
+                
+            })
+        },
+        data:{
+            a:{}
+        }
+    })
+</script>
+</body>
+</html>

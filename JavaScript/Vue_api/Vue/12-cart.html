@@ -37,9 +37,9 @@
                         <input type="number" v-model.number="product.productCount"/>
                     </td>
                     <td>
-                        {{(product.productCount * product.productPrice).toFixed(2) }}
+                        {{product.productCount * product.productPrice | toFixed(2) }}
                     </td>
-                    <td><button class="btn btn-danger">删除</button></td>
+                    <td><button class="btn btn-danger" @click="remove(product)">删除</button></td>
                 </tr>
             </table>
         </div>
@@ -66,6 +66,12 @@
                 },(err)=>{
                     console.log(err)
                 })
+            }
+        },
+        filters:{  // 可以有好多的自定义过滤器
+            toFixed(input,param1){  // 这里的this指向的是window
+                console.log(input);  // input是管道符前面的值
+                return '￥'+input.toFixed(param1)  // param1代表的是toFixed中传递的参数
             }
         },
         data:{

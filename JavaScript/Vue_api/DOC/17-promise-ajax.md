@@ -82,7 +82,11 @@ function ajax({url='',type='get',dataType='json'}){
         xhr.open(type,url,true)
         xhr.responseType = dataType
         xhr.onload = function(){     // xhr.readState=4 , xhr.status =200
-            resolve(xhr.response)    // 成功调用成功的方法
+            if(xhr.status == 200){
+                resolve(xhr.response)    // 成功调用成功的方法
+            }else{
+                reject('not found')
+            }
         }
         xhr.onerror = function(err){
             reject(err)              // 失败调用失败的方法
@@ -90,6 +94,7 @@ function ajax({url='',type='get',dataType='json'}){
         xhr.send()
     })
 }
+
 
 // 使用
 <script src="./../js/7-promise-ajax.js"></script>
@@ -100,11 +105,11 @@ let vm = new Vue({
         ajax({url:'./data/carts.json'}).then((res)=>{
             console.log(res);
         },(err)=>{
-
+            console.log(err);
         })
     },
     data:{
-       
+        a:{}
     }
 })
 

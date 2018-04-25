@@ -7,7 +7,46 @@
 </head>
 <body>
 
-<div id="app"></div>
+<div id="app">
+
+    <div class="container">
+        <!-- 每一行又会拥有12列 -->
+        <div class="row">
+            <h3>购物车</h3>
+            <table class="table table-hover table-bordered">
+                <tr>
+                    <th>全选 <input type="checkbox"></th>
+                    <th>商品</th>
+                    <th>单价</th>
+                    <th>数量</th>
+                    <th>小计</th>
+                    <th>操作</th>
+                </tr>
+                <tr v-for="(product,index) in products">
+                    <td>
+                        <input type="checkbox" v-model="product.isSelected" />
+                    </td>
+                    <td>
+                        <img :src="product.productCover" :title="product.productName" width="120" height="auto"/>
+                        {{product.productInfo}}
+                    </td>
+                    <td>
+                        {{product.productPrice}}
+                    </td>
+                    <td>
+                        <input type="number" v-model.number="product.productCount"/>
+                    </td>
+                    <td>
+                        {{(product.productCount * product.productPrice).toFixed(2) }}
+                    </td>
+                    <td><button class="btn btn-danger">删除</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+</div>
 
 <script src="./../node_modules/vue/dist/vue.js"></script>
 <!-- 基于promise的 -->
@@ -16,13 +55,18 @@
     let vm = new Vue({
         el:'#app',
         created(){  // 在数据被初始化后会调用,this指向指的也是vm实例
-            // Promise, 是解决回调问题的
-            axios.get('./data/carts.json').then((res) => {
-                console.log(res.data)
-                this.products = res.data
-            },(err)=>{
-                console.log(err)
-            })
+            this.getData()
+        },
+        methods:{
+            getData(){ // 初始化方法
+                // Promise, 是解决回调问题的
+                axios.get('./data/carts.json').then((res) => {
+                    console.log(res.data);
+                    this.products = res.data   // 获取数据,需要的是res.data
+                },(err)=>{
+                    console.log(err)
+                })
+            }
         },
         data:{
             products:[]

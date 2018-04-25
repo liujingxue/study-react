@@ -66,6 +66,9 @@
                 },(err)=>{
                     console.log(err)
                 })
+            },
+            remove(p){ // 删除 , p代表的是当前点击的这一项
+                this.products = this.products.filter(item=>item !== p)
             }
         },
         filters:{  // 可以有好多的自定义过滤器

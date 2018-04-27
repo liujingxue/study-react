@@ -15,7 +15,7 @@
             <h3>购物车</h3>
             <table class="table table-hover table-bordered">
                 <tr>
-                    <th>全选 <input type="checkbox" v-model="selectAll" @change="change"></th>
+                    <th>全选 <input type="checkbox" v-model="selectAll"></th>
                     <th>商品</th>
                     <th>单价</th>
                     <th>数量</th>
@@ -24,7 +24,7 @@
                 </tr>
                 <tr v-for="(product,index) in products">
                     <td>
-                        <input type="checkbox" v-model="product.isSelected" @change="changeOne"/>
+                        <input type="checkbox" v-model="product.isSelected"/>
                     </td>
                     <td>
                         <img :src="product.productCover" :title="product.productName" width="120" height="auto"/>
@@ -42,7 +42,7 @@
                     <td><button class="btn btn-danger" @click="remove(product)">删除</button></td>
                 </tr>
                 <tr>
-                    <td colspan="6">总价格: {{sum() | toFixed(2) }}</td>
+                    <td colspan="6">总价格: {{sum | toFixed(2) }}</td>
                 </tr>
             </table>
         </div>
@@ -75,15 +75,6 @@
             remove(p){    // 删除 , p代表的是当前点击的这一项
                 this.products = this.products.filter(item=>item !== p)
             },
-            change(){    // 全选
-                alert(this.selectAll)
-                // 根据当前自己的状态设置，其他人的状态，实现全选和反选
-                this.products.forEach(item=>item.isSelected=this.selectAll)
-
-            },
-            changeOne(){ // 根据下面点击的结果控制上面全选的结果
-                this.selectAll = this.products.every(item=>item.isSelected)
-            },
             sum(){       // 求和函数
                 return this.products.reduce((prev,next)=>{
                     if(!next.isSelected)return prev; // 如果当前没被选中，就不加当前这一项
@@ -99,19 +90,19 @@
         },
         // 当给全选赋值时，要影响其他人的变化, 当页面刷新时，获取全选值，是根据下面的checkbox计算出来的结果给全选赋值
         // Object.defineProperty
-        computed:{       // 放在computed中最后页会放在vm上，不能和methods与data重名
-            checkAll:{
-                get(){
-
+        computed:{        // 放在computed中最后页会放在vm上，不能和methods与data重名
+            selectAll:{   // 当products值变化时会重新计算
+                get(){    // 默认v-model会获取checkAll的值，所以会调用get方法
+                    return this.products.every(p=>p.isSelected)
                 },
-                set(){
-
+                set(val){  // 当我们给checkbox赋值的时候
+                    this.products.forEach(p=>p.isSelected = val)
                 }
             }
         },
         data:{
             products:[],
-            selectAll:false   // 是否全选
+            //selectAll:false   // 是否全选
         }
     })
 </script>

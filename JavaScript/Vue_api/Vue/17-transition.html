@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./../node_modules/animate.css/animate.css">
+    <style>
+        div>div{
+            width: 100px;
+            height: 100px;
+            background:#ccc;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <button @click="flag=!flag">切换</button>
+    <transition enter-active-class="animated fadeInRightBig" leave-active-class="animated fadeOutLeftBig">
+        <div v-show="flag">js</div>
+    </transition>
+</div>
+
+<script src="./../node_modules/vue/dist/vue.js"></script>
+<script>
+    let vm = new Vue({
+        el:'#app',
+        data:{
+            flag: true
+        }
+    })
+</script>
+</body>
+</html>

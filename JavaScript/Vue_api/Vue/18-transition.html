@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>vue 动画</title>
     <link rel="stylesheet" href="./../node_modules/animate.css/animate.css">
     <style>
         div>div{
@@ -16,21 +16,27 @@
 
 <div id="app">
     <button @click="flag=!flag">切换</button>
+    <input type="text" v-model="query">
     <transition-group enter-active-class="animated fadeInRightBig" leave-active-class="animated fadeOutLeftBig">
-        <div v-for="(a,index) in arr" v-bind:key="index">
+        <!-- v-for默认会复用原有的dom元素，如果加了key而且key不同他认为就是两个人了 -->
+        <div v-for="(a,index) in newArr" :key="Math.random()">
             {{a}}
         </div>
     </transition-group>
-
-
-
 </div>
 
 <script src="./../node_modules/vue/dist/vue.js"></script>
 <script>
     let vm = new Vue({
         el:'#app',
+        computed:{
+            // 得到新数组
+            newArr(){
+                return this.arr.filter(item=>item==this.query)
+            }
+        },
         data:{
+            query:'',
             flag: true,
             arr:[1,2,3,4,5]
         }

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修饰符</title>
+</head>
+<body>
+
+<div id="app">
+    <div @click.capture="parent">parent
+        <div @click="child">child
+            <div @click="grandson">grandson</div>
+        </div>
+    </div>
+
+    <a href="www.baidu.com" @click.prevent="parent">跳转</a>
+
+</div>
+
+<script src="./../node_modules/vue/dist/vue.js"></script>
+<script>
+    let vm = new Vue({
+        el:'#app',
+        methods:{
+            parent(){
+                alert('parent')
+            },
+            child(){
+                alert('child')
+            },
+            grandson(e){
+                alert('grandson')   // 点击孙子，有事件冒泡，child和parent都引发事件
+                //e.cancelBubble=true // 取消事件冒泡，只有grandson引发事件
+                //e.stopPropagation() // 也是阻止事件冒泡
+            }
+        },
+        data:{
+
+        }
+    })
+</script>
+</body>
+</html>

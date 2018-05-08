@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>computed - checkbox全选</title>
+</head>
+<body>
+
+
+<div id="app">
+    全选 <input type="checkbox" v-model="checkAll"> <br/>
+    <input type="checkbox" v-for="product in products" v-model="product.isSelected">
+</div>
+
+<script src="./../node_modules/vue/dist/vue.js"></script>
+<script>
+
+    let vm = new Vue({
+        el:'#app',
+        computed:{
+            checkAll:{   // checkAll 是算出来的
+                get(){ // 返回什么结果，就会赋予给checkAll属性
+                    //如果其中有一个值是false,则返回false,把false赋予给checkAll
+                    //如果都是true,则把true赋予给checkAll
+                    return this.products.every(item=>item.isSelected)
+                },
+                set(val){ //改自己的时候，去影响其他人
+                    //val是给checkAll赋予值的时候，传递过来的
+                    this.products.forEach(item=>item.isSelected = val)
+                }
+            }
+        },
+        data:{
+            products:[{
+                isSelected:true
+            },{
+                isSelected:true
+            }]
+        }
+    })
+
+</script>
+</body>
+</html>

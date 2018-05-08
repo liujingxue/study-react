@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .a{background: blue;}
+        .b{font-size: 30px;}
+        .c{color:red;}
+        .d{font-weight: bold;}
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <!-- :class绑定的样式和class绑定的不冲突 -->
+    <div class="a b" :class="{c:flag,d:flag}">js</div>
+
+    <div class="a b" :class="[class1,class2]">js</div>
+    <div class="a b" :class="[class1,{d:true}]">js</div>
+    <div :class="{true:'c',false:'d'}[true]">js</div>
+    <!-- 隔行变色 -->
+    <div v-for="(a,index) in 10" :class="{a:index%2}">{{a}}</div>
+</div>
+
+<script src="./../node_modules/vue/dist/vue.js"></script>
+<script>
+
+    //第一种方式是对象，第二种方式是数组
+    let vm = new Vue({
+        el:'#app',
+        data:{
+            class1:'c',
+            class2:'d',
+            flag:true
+        }
+    })
+
+</script>
+</body>
+</html>

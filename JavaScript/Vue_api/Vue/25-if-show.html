@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <!-- template标签是vue提供给我们的，没有任何实际意义 -->
+    <!-- 用来包裹元素用的 -->
+    <!-- v-show不支持template -->
+    <template v-if="flag">
+        <div>js</div>
+        <div>js</div>
+    </template>
+    <div v-else>js2</div>
+
+
+    <button @click="cut=!cut">点我切换</button>
+    <template v-if="cut">
+        <label for="reg">注册</label>
+        <input type="text" id="reg" key="1">
+    </template>
+
+    <template v-else>
+        <label for="login">登录</label>
+        <input type="text" id="login" key="2">
+    </template>
+
+</div>
+<script src="./../node_modules/vue/dist/vue.js"></script>
+<script>
+
+    let vm = new Vue({
+        el:'#app',
+        data:{
+            flag:false,
+            cut:true
+        }
+    })
+
+</script>
+</body>
+</html>

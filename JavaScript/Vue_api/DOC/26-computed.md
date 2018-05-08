@@ -40,3 +40,39 @@
 </script>
 
 ```
+
+
+## 监听输入框的数据长度
+
+```
+
+<div id="app">
+    <input type="text" v-model="a">
+    {{msg}}
+    <!-- 根据输入框的内容，算出一个错误信息 -->
+</div>
+
+<script>
+
+    let vm = new Vue({
+        el:'#app',
+        computed:{
+            msg(){
+                if(this.a.length < 3){
+                    return '少了'
+                }
+                if(this.a.length > 6){
+                    return '多了'
+                }
+                return ''
+            }
+        },
+        data:{
+            a:''
+        }
+    })
+
+</script>
+
+
+```

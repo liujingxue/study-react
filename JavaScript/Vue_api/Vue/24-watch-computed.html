@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>watch - computed - 全名</title>
+</head>
+<body>
+
+
+<div id="app">
+    <input type="text" v-model="val">
+    {{fullName}}
+</div>
+
+<script src="./../node_modules/vue/dist/vue.js"></script>
+<script>
+
+    let vm = new Vue({
+        el:'#app',
+        computed:{
+            fullName(){
+                return this.firstName+this.val+this.lastName
+            }
+        },
+        data:{
+            firstName:'js',
+            lastName:'hello',
+            val:''
+        }
+    })
+
+</script>
+</body>
+</html>

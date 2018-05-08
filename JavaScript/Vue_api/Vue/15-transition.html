@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画</title>
+    <style>
+        div>div{
+            width:100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <!-- v-if  v-show -->
+    <!-- 如果频繁的切换dom使用v-show -->
+    <!-- 当数据一开始就确定下来,使用v-if更好 -->
+
+    <button @click="flag=!flag">切换</button>
+    <div v-show="flag">js</div>
+</div>
+
+<script src="./../node_modules/vue/dist/vue.js"></script>
+<script>
+    let vm = new Vue({
+        el:'#app',
+        data:{
+            a:{},
+            flag:true
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+2018-05-09 14:28:03,543 ERROR 11316 [-/127.0.0.1/-/8ms GET /] nodejs.Error: Please set config.keys first
+    at Application.get keys [as keys] (E:\e\React.js入门基础与案例开发\study-react\eggjs_antdesign\node_modules\egg\lib\application.js:318:15)
+    at Object.get cookies [as cookies] (E:\e\React.js入门基础与案例开发\study-react\eggjs_antdesign\node_modules\egg\app\extend\context.js:18:66)
+    at Object.get [egg-security#CSRF_SECRET] (E:\e\React.js入门基础与案例开发\study-react\eggjs_antdesign\node_modules\egg-security\app\extend\context.js:78:33)
+    at Object.ensureCsrfSecret (E:\e\React.js入门基础与案例开发\study-react\eggjs_antdesign\node_modules\egg-security\app\extend\context.js:89:13)
+    at csrf (E:\e\React.js入门基础与案例开发\study-react\eggjs_antdesign\node_modules\egg-security\lib\middlewares\csrf.js:14:9)
+    at dispatch (E:\e\React.js入门基础与案例开发\study-react\eggjs_antdesign\node_modules\koa-compose\index.js:42:32)
+    at E:\e\React.js入门基础与案例开发\study-react\eggjs_antdesign\node_modules\koa-compose\index.js:34:12
+    at dispatch (E:\e\React.js入门基础与案例开发\study-react\eggjs_antdesign\node_modules\koa-compose\index.js:42:32)
+    at next (E:\e\React.js入门基础与案例开发\study-react\eggjs_antdesign\node_modules\koa-compose\index.js:43:18)
+    at session (E:\e\React.js入门基础与案例开发\study-react\eggjs_antdesign\node_modules\koa-session\index.js:41:13)
+
+pid: 11316
+hostname: JLHE5VVZW73KFI0
+
+2018-05-09 15:13:20,381 ERROR 15976 [-/127.0.0.1/-/11ms GET /news] nodejs.AssertionError [ERR_ASSERTION]: Can't find news from E:\e\React.js入门基础与案例开发\study-react\eggjs_antdesign\app\view
+    at Map.resolve (E:\e\React.js入门基础与案例开发\study-react\eggjs_antdesign\node_modules\egg-view\lib\view_manager.js:74:5)
+    at <anonymous>
+generatedMessage: false
+name: 'AssertionError [ERR_ASSERTION]'
+code: 'ERR_ASSERTION'
+actual: undefined
+expected: true
+operator: '=='
+pid: 15976
+hostname: JLHE5VVZW73KFI0
+
+2018-05-09 15:14:55,250 ERROR 25924 [-/127.0.0.1/-/11ms GET /news] nodejs.AssertionError [ERR_ASSERTION]: Can't find news from E:\e\React.js入门基础与案例开发\study-react\eggjs_antdesign\app\view
+    at Map.resolve (E:\e\React.js入门基础与案例开发\study-react\eggjs_antdesign\node_modules\egg-view\lib\view_manager.js:74:5)
+    at <anonymous>
+generatedMessage: false
+name: 'AssertionError [ERR_ASSERTION]'
+code: 'ERR_ASSERTION'
+actual: undefined
+expected: true
+operator: '=='
+pid: 25924
+hostname: JLHE5VVZW73KFI0
+
+2018-05-09 17:09:23,382 ERROR 25840 [-/127.0.0.1/-/811ms GET /news] nodejs.TypeError: Cannot read property 'ctx' of undefined
+    at E:\e\React.js入门基础与案例开发\study-react\eggjs_antdesign\app\service\news.js:23:28
+    at String.replace (<anonymous>)
+    at NewsService.fetch (E:\e\React.js入门基础与案例开发\study-react\eggjs_antdesign\app\service\news.js:17:14)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:118:7)
+
+pid: 25840
+hostname: JLHE5VVZW73KFI0
+
+2018-05-09 17:11:56,437 ERROR 11092 [-/127.0.0.1/-/775ms GET /news] nodejs.ReferenceError: E:\e\React.js入门基础与案例开发\study-react\eggjs_antdesign\app\view\news.ejs:27
+    25|                                 <%=item.title%>
+    26|                             </a>
+ >> 27|                             <span style="float: right;"><%=relative(item.time)%></span>
+    28|                         </li>
+    29|                         <%})%>
+    30|                     </ul>
+
+relative is not defined
+    25|                                 <%=item.title%>
+    26|                             </a>
+ >> 27|                             <span style="float: right;"><%=relative(item.time)%></span>
+    28|                         </li>
+    29|                         <%})%>
+    30|                     </ul>
+
+relative is not defined
+    at news.forEach.item (eval at compile (E:\e\React.js入门基础与案例开发\study-react\eggjs_antdesign\node_modules\ejs\lib\ejs.js:618:12), <anonymous>:20:7)
+    at Array.forEach (<anonymous>)
+    at eval (eval at compile (E:\e\React.js入门基础与案例开发\study-react\eggjs_antdesign\node_modules\ejs\lib\ejs.js:618:12), <anonymous>:11:12)
+    at returnedFn (E:\e\React.js入门基础与案例开发\study-react\eggjs_antdesign\node_modules\ejs\lib\ejs.js:653:17)
+    at tryHandleCache (E:\e\React.js入门基础与案例开发\study-react\eggjs_antdesign\node_modules\ejs\lib\ejs.js:251:36)
+    at Object.exports.renderFile (E:\e\React.js入门基础与案例开发\study-react\eggjs_antdesign\node_modules\ejs\lib\ejs.js:482:10)
+    at Promise (E:\e\React.js入门基础与案例开发\study-react\eggjs_antdesign\node_modules\egg-view-ejs\lib\view.js:16:11)
+    at new Promise (<anonymous>)
+    at EjsView.[EjsView#_render] (E:\e\React.js入门基础与案例开发\study-react\eggjs_antdesign\node_modules\egg-view-ejs\lib\view.js:15:12)
+    at EjsView.render (E:\e\React.js入门基础与案例开发\study-react\eggjs_antdesign\node_modules\egg-view-ejs\lib\view.js:28:36)
+path: 'E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\app\\view\\news.ejs'
+pid: 11092
+hostname: JLHE5VVZW73KFI0
+
+2018-05-09 17:12:28,991 ERROR 5572 [-/127.0.0.1/-/349ms GET /news] nodejs.ReferenceError: E:\e\React.js入门基础与案例开发\study-react\eggjs_antdesign\app\view\news.ejs:27
+    25|                                 <%=item.title%>
+    26|                             </a>
+ >> 27|                             <span style="float: right;"><%=relative(item.time)%></span>
+    28|                         </li>
+    29|                         <%})%>
+    30|                     </ul>
+
+relative is not defined
+    25|                                 <%=item.title%>
+    26|                             </a>
+ >> 27|                             <span style="float: right;"><%=relative(item.time)%></span>
+    28|                         </li>
+    29|                         <%})%>
+    30|                     </ul>
+
+relative is not defined
+    at news.forEach.item (eval at compile (E:\e\React.js入门基础与案例开发\study-react\eggjs_antdesign\node_modules\ejs\lib\ejs.js:618:12), <anonymous>:20:7)
+    at Array.forEach (<anonymous>)
+    at eval (eval at compile (E:\e\React.js入门基础与案例开发\study-react\eggjs_antdesign\node_modules\ejs\lib\ejs.js:618:12), <anonymous>:11:12)
+    at returnedFn (E:\e\React.js入门基础与案例开发\study-react\eggjs_antdesign\node_modules\ejs\lib\ejs.js:653:17)
+    at tryHandleCache (E:\e\React.js入门基础与案例开发\study-react\eggjs_antdesign\node_modules\ejs\lib\ejs.js:251:36)
+    at Object.exports.renderFile (E:\e\React.js入门基础与案例开发\study-react\eggjs_antdesign\node_modules\ejs\lib\ejs.js:482:10)
+    at Promise (E:\e\React.js入门基础与案例开发\study-react\eggjs_antdesign\node_modules\egg-view-ejs\lib\view.js:16:11)
+    at new Promise (<anonymous>)
+    at EjsView.[EjsView#_render] (E:\e\React.js入门基础与案例开发\study-react\eggjs_antdesign\node_modules\egg-view-ejs\lib\view.js:15:12)
+    at EjsView.render (E:\e\React.js入门基础与案例开发\study-react\eggjs_antdesign\node_modules\egg-view-ejs\lib\view.js:28:36)
+path: 'E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\app\\view\\news.ejs'
+pid: 5572
+hostname: JLHE5VVZW73KFI0
+

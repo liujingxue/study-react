@@ -1,0 +1,268 @@
+{
+  "keys": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\config\\config.default.js",
+  "middleware": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\config\\config.default.js",
+  "time": {
+    "prefix": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\config\\config.default.js"
+  },
+  "view": {
+    "defaultViewEngine": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\config\\config.default.js",
+    "mapping": {
+      ".ejs": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\config\\config.default.js"
+    },
+    "root": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-view\\config\\config.default.js",
+    "cache": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-view\\config\\config.local.js",
+    "defaultExtension": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-view\\config\\config.default.js"
+  },
+  "news": {
+    "url": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\config\\config.default.js"
+  },
+  "session": {
+    "maxAge": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-session\\config\\config.default.js",
+    "key": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-session\\config\\config.default.js",
+    "httpOnly": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-session\\config\\config.default.js",
+    "encrypt": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-session\\config\\config.default.js"
+  },
+  "security": {
+    "domainWhiteList": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-security\\config\\config.default.js",
+    "protocolWhiteList": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-security\\config\\config.default.js",
+    "defaultMiddleware": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-security\\config\\config.default.js",
+    "csrf": {
+      "enable": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-security\\config\\config.default.js",
+      "useSession": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-security\\config\\config.default.js",
+      "ignoreJSON": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-security\\config\\config.default.js",
+      "cookieName": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-security\\config\\config.default.js",
+      "sessionName": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-security\\config\\config.default.js",
+      "headerName": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-security\\config\\config.default.js",
+      "bodyName": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-security\\config\\config.default.js",
+      "queryName": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "xframe": {
+      "enable": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "hsts": {
+      "enable": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-security\\config\\config.local.js",
+      "maxAge": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-security\\config\\config.default.js",
+      "includeSubdomains": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "dta": {
+      "enable": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "methodnoallow": {
+      "enable": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "noopen": {
+      "enable": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "nosniff": {
+      "enable": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "referrerPolicy": {
+      "enable": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "xssProtection": {
+      "enable": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "csp": {
+      "enable": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-security\\config\\config.default.js",
+      "policy": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "ssrf": {
+      "ipBlackList": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-security\\config\\config.default.js",
+      "checkAddress": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-security\\config\\config.default.js"
+    }
+  },
+  "helper": {
+    "shtml": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-security\\config\\config.default.js"
+  },
+  "jsonp": {
+    "limit": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-jsonp\\config\\config.default.js",
+    "callback": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-jsonp\\config\\config.default.js",
+    "csrf": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-jsonp\\config\\config.default.js"
+  },
+  "onerror": {
+    "errorPageUrl": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-onerror\\config\\config.default.js",
+    "appErrorFilter": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-onerror\\config\\config.default.js"
+  },
+  "i18n": {
+    "defaultLocale": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-i18n\\config\\config.default.js",
+    "dirs": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-i18n\\config\\config.default.js",
+    "queryField": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieField": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieMaxAge": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-i18n\\config\\config.default.js"
+  },
+  "watcher": {
+    "type": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-watcher\\config\\config.local.js",
+    "eventSources": {
+      "default": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-watcher\\config\\config.default.js",
+      "development": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-watcher\\config\\config.default.js"
+    }
+  },
+  "multipart": {
+    "autoFields": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-multipart\\config\\config.default.js",
+    "defaultCharset": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fieldNameSize": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fieldSize": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fields": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fileSize": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-multipart\\config\\config.default.js",
+    "files": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fileExtensions": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-multipart\\config\\config.default.js",
+    "whitelist": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-multipart\\config\\config.default.js"
+  },
+  "development": {
+    "watchDirs": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-development\\config\\config.default.js",
+    "ignoreDirs": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-development\\config\\config.default.js",
+    "fastReady": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-development\\config\\config.default.js",
+    "reloadOnDebug": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-development\\config\\config.default.js",
+    "overrideDefault": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-development\\config\\config.default.js"
+  },
+  "customLogger": {
+    "scheduleLogger": {
+      "consoleLevel": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-schedule\\config\\config.default.js",
+      "file": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-schedule\\config\\config.default.js"
+    }
+  },
+  "logrotator": {
+    "filesRotateByHour": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "hourDelimiter": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "filesRotateBySize": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxFileSize": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxFiles": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "rotateDuration": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxDays": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-logrotator\\config\\config.default.js"
+  },
+  "static": {
+    "prefix": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-static\\config\\config.default.js",
+    "dir": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-static\\config\\config.default.js",
+    "dynamic": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-static\\config\\config.default.js",
+    "preload": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-static\\config\\config.default.js",
+    "buffer": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-static\\config\\config.default.js",
+    "maxFiles": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-static\\config\\config.default.js"
+  },
+  "ejs": {
+    "root": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-view-ejs\\config\\config.default.js",
+    "cache": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-view-ejs\\config\\config.local.js",
+    "debug": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-view-ejs\\config\\config.default.js",
+    "compileDebug": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-view-ejs\\config\\config.default.js",
+    "delimiter": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-view-ejs\\config\\config.default.js",
+    "strict": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg-view-ejs\\config\\config.default.js"
+  },
+  "env": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+  "name": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+  "proxy": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+  "protocolHeaders": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+  "ipHeaders": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+  "hostHeaders": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+  "pkg": {
+    "name": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+    "version": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+    "description": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+    "main": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+    "directories": {
+      "doc": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js"
+    },
+    "scripts": {
+      "dev": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js"
+    },
+    "keywords": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+    "author": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+    "license": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+    "dependencies": {
+      "egg": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+      "egg-view-ejs": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+      "moment": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js"
+    },
+    "devDependencies": {
+      "egg-bin": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "baseDir": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+  "HOME": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+  "rundir": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+  "dump": {
+    "ignore": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js"
+  },
+  "confusedConfigurations": {
+    "bodyparser": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+    "notFound": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+    "sitefile": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+    "middlewares": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+    "httpClient": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js"
+  },
+  "notfound": {
+    "pageUrl": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js"
+  },
+  "siteFile": {
+    "/favicon.ico": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js"
+  },
+  "bodyParser": {
+    "enable": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+    "encoding": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+    "formLimit": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+    "jsonLimit": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+    "strict": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+    "queryString": {
+      "arrayLimit": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+      "depth": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+      "parameterLimit": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "logger": {
+    "dir": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+    "encoding": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+    "env": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+    "level": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+    "consoleLevel": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+    "disableConsoleAfterReady": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+    "outputJSON": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+    "buffer": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+    "appLogName": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+    "coreLogName": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+    "agentLogName": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+    "errorLogName": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+    "coreLogger": {
+      "consoleLevel": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.local.js"
+    },
+    "allowDebugAtProd": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js"
+  },
+  "httpclient": {
+    "enableDNSCache": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+    "dnsCacheMaxLength": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+    "dnsCacheMaxAge": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+    "request": {
+      "timeout": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js"
+    },
+    "httpAgent": {
+      "keepAlive": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+      "freeSocketKeepAliveTimeout": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+      "maxSockets": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+      "maxFreeSockets": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js"
+    },
+    "httpsAgent": {
+      "keepAlive": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+      "freeSocketKeepAliveTimeout": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+      "maxSockets": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+      "maxFreeSockets": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "meta": {
+    "enable": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+    "logging": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js"
+  },
+  "coreMiddleware": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+  "workerStartTimeout": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+  "cluster": {
+    "listen": {
+      "path": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+      "port": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+      "hostname": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "clusterClient": {
+    "maxWaitTime": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js",
+    "responseTimeout": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js"
+  },
+  "onClientError": "E:\\e\\React.js入门基础与案例开发\\study-react\\eggjs_antdesign\\node_modules\\egg\\config\\config.default.js"
+}

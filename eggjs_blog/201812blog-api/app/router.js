@@ -20,4 +20,9 @@ module.exports = app => {
 
   router.resources('articles','/api/articles', controller.articles);
 
+  //增加页面访问量
+  router.get('/api/articles/pv/:id', controller.articles.addPv);
+  //增加评论
+  router.post('/api/articles/comment/:id', controller.articles.addComment);
+
 };

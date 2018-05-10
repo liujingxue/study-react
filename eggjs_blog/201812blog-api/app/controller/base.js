@@ -4,6 +4,9 @@
 
 const {Controller} = require('egg');
 class BaseController extends Controller{
+    get user(){ //得到session中的user
+        return this.ctx.session.user;
+    }
     success(data){
         this.ctx.body = {
             code:0,

@@ -201,6 +201,9 @@ app/controller/base.js
 ```
 const {Controller} = require('egg');
 class BaseController extends Controller{
+    get user(){ //得到session中的user
+        return this.ctx.session.user;
+    }
     success(data){
         this.ctx.body = {
             code:0,
@@ -573,6 +576,7 @@ class ArticlesController extends BaseController{
     async create(){
         let {ctx} = this;
         let article = ctx.request.body;  //得到请求体
+        article.user = this.user; //调用父类的user方法， 得先登录，才有session中的user信息
         try{
             article = await ctx.model.Article.create(article);
             this.success('文章发布成功');
@@ -667,10 +671,17 @@ async index(){
     }
 
     try{
+        let total = await ctx.model.Article.count(query); //总条数
         let items = await ctx.model.Article.find(query)
             .skip((pageNum -1)*pageSize)
             .limit(pageSize);
-        this.success({items});
+        this.success({
+            pageNum,
+            pageSize,
+            items,
+            total,
+            pageCount:Math.ceil(total/pageSize) //总页数, Math.ceil向上取整
+        });
     }catch(error){
         this.error(error);
     }
@@ -740,9 +751,72 @@ delete http://127.0.0.1:7001/api/articles/5af3f6f8ac7ad71f0ce699f3
 执行成功
 
 
+### 6.8增加页面访问量
+
+配置路由
+
+```
+
+router.get('/api/articles/pv/:id', controller.articles.addPv);
+
+```
+
+新增控制器方法
+
+```
+
+//增加页面访问量
+async addPv(){
+    let {ctx} = this;
+    let id = ctx.params.id;
+    try{
+        await ctx.model.Article.findByIdAndUpdate(id,{$inc:{pv:1}}); //$inc是把pv这个字段，加1
+        this.success('增加pv成功');
+    }catch(error){
+        this.error(error);
+    }
+}
+
+```
+
+执行Postman
+
+get http://127.0.0.1:7001/api/articles/pv/5af3f59ce28d676b08b762a0
 
 
+### 6.9增加评论
+
+配置路由
+
+```
+router.post('/api/articles/comment/:id', controller.articles.addComment);
+
+```
+
+新增控制器方法
+
+```
+
+//增加评论
+async addComment(){
+    let {ctx} = this;
+    let id = ctx.params.id;
+    let comment = ctx.request.body;
+    comment.user = this.user;
+    try{
+        await ctx.model.Article.findByIdAndUpdate(id,{$push : {comments:comment}}); //$push是新增
+        this.success('增加评论成功');
+    }catch(error){
+        this.error(error);
+    }
+}
+
+```
+
+执行Postman
+
+post http://127.0.0.1:7001/api/articles/comment/5af3f59ce28d676b08b762a0
 
 
-
+## 7.处理跨域
 

@@ -687,8 +687,57 @@ http://127.0.0.1:7001/api/articles?pageNum=1&pageSize=5&keyword=33
 
 ### 6.6修改文章
 
+```
+
+//更新文章
+async update(){
+    let {ctx} = this;
+    let id = ctx.params.id;
+    let article = ctx.request.body;
+    try{
+        await ctx.model.Article.findByIdAndUpdate(id, article);
+        this.success('更新文章成功');
+    }catch(error){
+        this.error(error);
+    }
+}
+
+```
+
+执行Postman
+
+put http://127.0.0.1:7001/api/articles/5af3f6f8ac7ad71f0ce699f3
+
+{
+	"title":"标题66ok",
+	"content":"内容66ok"
+}
+
+
 ### 6.7删除文章
 
+```
+
+//删除文章
+async destroy(){
+    let {ctx} = this;
+    let id = ctx.params.id;  //得到URL中的参数
+    try{
+        //findByIdAndRemove 通过id找到并删除
+        let result = await ctx.model.Article.findByIdAndRemove(id);
+        this.success('删除成功');
+    }catch(error){
+        this.error(error);
+    }
+}
+
+```
+
+执行Postman
+
+delete http://127.0.0.1:7001/api/articles/5af3f6f8ac7ad71f0ce699f3
+
+执行成功
 
 
 

@@ -37,5 +37,32 @@ class ArticlesController extends BaseController{
             this.error(error);
         }
     }
+
+    //更新文章
+    async update(){
+        let {ctx} = this;
+        let id = ctx.params.id;
+        let article = ctx.request.body;
+        try{
+            await ctx.model.Article.findByIdAndUpdate(id, article);
+            this.success('更新文章成功');
+        }catch(error){
+            this.error(error);
+        }
+    }
+
+    //删除文章
+    async destroy(){
+        let {ctx} = this;
+        let id = ctx.params.id;  //得到URL中的参数
+        try{
+            //findByIdAndRemove 通过id找到并删除
+            let result = await ctx.model.Article.findByIdAndRemove(id);
+            this.success('删除成功');
+        }catch(error){
+            this.error(error);
+        }
+    }
+
 }
 module.exports = ArticlesController;

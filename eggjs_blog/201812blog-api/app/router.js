@@ -10,4 +10,11 @@ module.exports = app => {
   router.post('/api/users/signup', controller.users.signup);
   router.post('/api/users/signin', controller.users.signin);
   router.get('/api/users/signout', controller.users.signout);
+
+  router.resources('categories', '/api/categories', controller.categories);
+  // router.get('/api/categories', controller.categories.index);
+  // router.post('/api/categories', controller.categories.create);
+  // router.put('/api/categories/:id', controller.categories.update); //改
+  // router.delete('/api/categories/:id', controller.categories.destroy);
+
 };

@@ -351,6 +351,209 @@ get http://127.0.0.1:7001/api/users/signout
 一个路径上生成CRUD路由结构。
 
 
+### 5.1配置路由
+
+```
+router.resources('categories', '/api/categories', controller.categories);
+
+```
+
+### 5.2新建控制器
+
+controller下建立 categories.js
+
+app/controller/categories.js
+
+```
+
+let BaseController = require('./base');
+class CategoriesController extends BaseController{
+    async index(){
+
+    }
+
+    //增加文章分类
+    async create(){
+        let {ctx} = this;
+        let category = ctx.request.body; //得到请求体
+        try{
+            let doc = await ctx.model.Category.findOne(category);
+            if(doc){
+                this.error('此分类已经存在!');
+            }else{
+                doc = await ctx.model.Category.create(category);
+                this.success('保存分类成功');
+            }
+        }catch(error){
+            this.error(error);
+        }
+    }
+
+
+}
+module.exports = CategoriesController;
+
+```
+
+### 5.3编写模型
+
+model下建立 category.js
+
+app/model/category.js
+
+```
+module.exports = app => {
+    //先得到mongoose的模块，通过它可以定义骨架模型和model
+    let mongoose = app.mongoose;
+    //先定义Schema, 通过它可以定义集合里文档的属性名和类型
+    let Schema = mongoose.Schema;
+    //用户集合的模型骨架，它不连接数据库也不能操作数据
+    let CategorySchema = new Schema({
+        name: String
+    });
+    //返回了一个用户模型，用户模型是可以对数据库进行增删改查的
+    return mongoose.model('Category',CategorySchema);
+}
+
+```
+
+### 5.4使用Postman
+
+post http://127.0.0.1:7001/api/categories
+
+body -> 选择raw -> JSON(application/json)
+
+{
+    "name":"数码产品"
+}
+
+执行成功
+
+
+### 5.5查看分类列表
+
+app/controller/categories.js
+
+无分页
+
+```
+
+async index(){
+    let {ctx} = this;
+    try{
+        let items = await ctx.model.Category.find({});
+        this.success({items});
+    }catch(error){
+        this.error(error);
+    }
+}
+
+```
+
+编写分页
+
+查询参数，放在URL地址中的查询字符串里
+
+* "pageNum":1,   //显示当前显示的页
+* "pageSize":5,  //显示每页条数是5
+* "keyword":"a"  //关键字
+
+```
+
+//查询分类列表
+async index() {
+    let { ctx } = this;
+    let { pageNum = 1, pageSize = 10, keyword } = ctx.query;
+    pageNum = isNaN(pageNum) ? 1 : parseInt(pageNum);
+    pageSize = isNaN(pageSize) ? 1 : parseInt(pageSize);
+    let query = {};
+    if (keyword) {
+        query.name = new RegExp(keyword);
+    }
+    let total = await ctx.model.Category.count(query);
+    let items = await ctx.model.Category.find(query).skip((pageNum - 1) * pageSize).limit(pageSize);
+    this.success({
+        items,
+        pageNum,
+        pageSize,
+        total,
+        pageCount: Math.ceil(total / pageSize)
+    });
+}
+
+```
+
+
+### 5.6使用Postman
+
+get  http://127.0.0.1:7001/api/categories?pageNum=1&pageSize=2
+
+http://127.0.0.1:7001/api/categories?pageNum=1&pageSize=5&keyword=数码
+
+
+### 5.7修改分类
+
+```
+
+//更新文章分类
+async update(){
+    let {ctx} = this;
+    let id = ctx.params.id;  //得到URL中的参数
+    let category = ctx.request.body;  //{name:new}
+    try{
+        //findByIdAndUpdate 通过id找到并更新
+        let result = await ctx.model.Category.findByIdAndUpdate(id, category);
+        this.success('更新成功');
+    }catch(error){
+        this.error(error);
+    }
+}
+
+
+```
+
+执行Postman
+
+put  http://127.0.0.1:7001/api/categories/5af3e520fa70362c4485e74e
+
+body -> 选择raw -> JSON(application/json)
+
+{
+    "name":"数码宝贝"
+}
+
+
+### 5.8删除分类
+
+```
+
+//删除文章分类
+async destroy(){
+    let {ctx} = this;
+    let id = ctx.params.id;  //得到URL中的参数
+    try{
+        //findByIdAndRemove 通过id找到并删除
+        let result = await ctx.model.Category.findByIdAndRemove(id);
+        this.success('删除成功');
+    }catch(error){
+        this.error(error);
+    }
+}
+
+```
+
+
+执行Postman
+
+delete  http://127.0.0.1:7001/api/categories/5af3f026e0494a29648aafd7
+
+删除成功
+
+
+## 6.文章管理
+
+
+
 
 
 

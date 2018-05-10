@@ -8,6 +8,6 @@ module.exports = app => {
   router.get('/', controller.home.index);
 
   router.post('/api/users/signup', controller.users.signup);
-  // router.post('/api/users/signin', controller.users.signin);
+  router.post('/api/users/signin', controller.users.signin);
   // router.get('/api/users/signout', controller.users.signout);
 };

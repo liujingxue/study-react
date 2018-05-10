@@ -550,7 +550,147 @@ delete  http://127.0.0.1:7001/api/categories/5af3f026e0494a29648aafd7
 删除成功
 
 
+
 ## 6.文章管理
+
+### 6.1配置路由
+
+```
+router.resources('articles','/api/articles', controller.articles);
+
+```
+
+### 6.2编写控制器
+
+controller下建立 articles.js
+
+app/controller/articles.js
+
+```
+let BaseController = require('./base');
+class ArticlesController extends BaseController{
+    //新增文章
+    async create(){
+        let {ctx} = this;
+        let article = ctx.request.body;  //得到请求体
+        try{
+            article = await ctx.model.Article.create(article);
+            this.success('文章发布成功');
+        }catch(error){
+            this.error(error);
+        }
+    }
+}
+module.exports = ArticlesController;
+
+```
+
+### 6.3编写模型
+
+model下建立 article.js
+
+```
+module.exports = app => {
+    //先得到mongoose的模块，通过它可以定义骨架模型和model
+    let mongoose = app.mongoose;
+    //先定义Schema, 通过它可以定义集合里文档的属性名和类型
+    let Schema = mongoose.Schema;
+    //外键
+    const ObjectId = Schema.Types.ObjectId;
+    //用户集合的模型骨架，它不连接数据库也不能操作数据
+    let ArticleSchema = new Schema({
+        title:{type:String, required: true},  //标题
+        content:{type:String, required:true}, //正文
+        user:{ //作者
+            type:ObjectId,
+            ref: 'User' //引用的是User模型， 关联User模型
+        },
+        pv:{type:Number, default:0},  //页面的访问量
+        comments:[  //评论
+            {user:{type:ObjectId, ref:'User'}, content: String , createAt:{ type:Date, default: Date.now } }
+        ],
+        createAt:{ type:Date, default: Date.now },  //创建时间，默认为当前时间
+    });
+    //返回了一个用户模型，用户模型是可以对数据库进行增删改查的
+    return mongoose.model('Article',ArticleSchema);
+}
+
+```
+
+### 6.4使用Postman
+
+post http://127.0.0.1:7001/api/articles
+
+body -> 选择raw -> JSON(application/json)
+
+{
+	"title":"标题1",
+	"content":"内容1"
+}
+
+执行成功
+
+
+### 6.5查看文章列表
+
+无分页
+
+```
+
+//查看文章列表
+async index(){
+    let {ctx} = this;
+    try{
+        let items = await ctx.model.Article.find();
+        this.success({items});
+    }catch(error){
+        this.error(error);
+    }
+}
+
+```
+
+分页
+
+```
+
+//查看文章列表
+async index(){
+    let {ctx} = this;
+    let {pageNum=1,pageSize=5,keyword=''} = ctx.query;
+    pageNum = isNaN(pageNum)? 1:parseInt(pageNum);    //如果不是数字，则为默认值1
+    pageSize = isNaN(pageSize) ? 5:parseInt(pageSize);
+    let query = {};
+    if(keyword){
+        //或，有一个满足条件就行
+        query['$or'] = [{title:new RegExp(keyword)}, {content:new RegExp(keyword)}];
+    }
+
+    try{
+        let items = await ctx.model.Article.find(query)
+            .skip((pageNum -1)*pageSize)
+            .limit(pageSize);
+        this.success({items});
+    }catch(error){
+        this.error(error);
+    }
+}
+
+```
+
+执行Postman
+
+get http://127.0.0.1:7001/api/articles
+
+http://127.0.0.1:7001/api/articles?pageNum=1&pageSize=5&keyword=33
+
+
+### 6.6修改文章
+
+### 6.7删除文章
+
+
+
 
 
 

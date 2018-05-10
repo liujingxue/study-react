@@ -221,8 +221,46 @@ src下建立 index.js
 src/index.js
 
 ```
-
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Routers from './router';
+ReactDOM.render(<Routers/>, document.querySelector('#root'));
 
 ```
+
+src下建立router.js
+
+src/router.js
+
+```
+import React, {Component} from 'react';
+import { HashRouter as Router, Route, Switch} from 'react-router-dom';
+//函数组件
+function Home(){
+    return <div>Home</div>;
+}
+function Admin(){
+    return <div>Admin</div>;
+}
+export default class Routers extends Component{
+    // HashRouter是最外层包裹的
+    // Switch是只匹配一个,最多只渲染一个
+    render(){
+        return (
+            <Router>
+                <Switch>
+                    <Route path="/" component={Home} exact />
+                    <Route path="/admin" component={Admin} />
+                </Switch>
+            </Router>
+        )
+    }
+}
+
+```
+
+打开 http://localhost:3000/#/
+
+
 
 ## 3.编写注册页

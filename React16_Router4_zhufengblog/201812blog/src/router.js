@@ -4,10 +4,9 @@
 
 import React, {Component} from 'react';
 import { HashRouter as Router, Route, Switch} from 'react-router-dom';
+import Home from './pages/home';
+
 //函数组件
-function Home(){
-    return <div>Home</div>;
-}
 function Admin(){
     return <div>Admin</div>;
 }
@@ -26,4 +25,3 @@ export default class Routers extends Component{
     }
 }
 
-//1:16

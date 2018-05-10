@@ -9,5 +9,5 @@ module.exports = app => {
 
   router.post('/api/users/signup', controller.users.signup);
   router.post('/api/users/signin', controller.users.signin);
-  // router.get('/api/users/signout', controller.users.signout);
+  router.get('/api/users/signout', controller.users.signout);
 };

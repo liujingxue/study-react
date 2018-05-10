@@ -40,6 +40,12 @@ class UsersController extends BaseController{
         }
     }
 
+    async signout(){ //登出方法
+        let {ctx} = this;
+        ctx.session.user = null;
+        this.success('退出成功');
+    }
+
 }
 
 module.exports = UsersController;

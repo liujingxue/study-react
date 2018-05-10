@@ -304,6 +304,52 @@ Body -> 选择raw -> JSON(application/json)
 
 ### 4.1控制器上增加方法
 
+app/controller/users.js
+
+```
+async signout(){ //登出方法
+    let {ctx} = this;
+    ctx.session.user = null;
+    this.success('退出成功');
+}
+
+```
+
+### 4.2配置路由
+
+```
+router.get('/api/users/signout', controller.users.signout);
+
+```
+
+### 4.3使用Postman
+
+get http://127.0.0.1:7001/api/users/signout
+
+执行成功
+
+
+
+## 5.分类管理
+
+| Method | Path | Controller.Action |
+| :----- | :----- | :--------- |
+| POST | /posts| app.controller.posts.create |
+| GET | /posts | app.controller.posts.index |
+| PUT | /posts/:id | app.controller.posts.update |
+| DELETE | /posts/:id | app.controller.posts.destroy |
+
+
+* 分类列表
+    * get    /api/categories     列表
+    * post   /api/categories     增加
+    * put    /api/categories/:id 编辑
+    * delete /api/categories/:id 删除
+
+如果想通过RESTful的方式来定义路由，我们提供了 app.resources('routerName','pathMatch',controller) 快速在
+
+一个路径上生成CRUD路由结构。
+
 
 
 

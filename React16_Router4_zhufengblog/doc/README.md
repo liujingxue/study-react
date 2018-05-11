@@ -264,3 +264,13 @@ export default class Routers extends Component{
 
 
 ## 3.编写注册页
+
+
+|--src
+    |--pages   //页面
+    |--service //调取接口
+        |-index.js //公共方法
+        |-user.js  //用户
+    |--style   //样式
+
+cnpm i axios -S

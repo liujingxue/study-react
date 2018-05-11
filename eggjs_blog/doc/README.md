@@ -820,3 +820,47 @@ post http://127.0.0.1:7001/api/articles/comment/5af3f59ce28d676b08b762a0
 
 ## 7.处理跨域
 
+egg-cors
+
+```
+npm i egg-cors --save
+
+```
+
+{root}/config/plugin.js
+
+```
+exports.cors = {
+    enable:true,
+    package:"egg-cors"
+};
+
+```
+
+{root}/config/config.default.js
+
+```
+
+//暂时禁用CSRF
+config.security = {
+  //csrf: false,
+  csrf:{
+    ignoreJSON:true, //默认为false,当设置为true时，将会放过所有
+  },
+  methodnoallow:{
+    enable:false
+  },
+  //白名单
+  domainWhiteList: [ 'http://localhost:3000' ], //允许跨域的端口
+}
+
+config.cors = {
+  // origin:'*'
+  origin:'http://localhost:3000',
+  allowMethods:'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
+  credentials:true  //这个一定要设置
+};
+
+
+```
+

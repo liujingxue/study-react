@@ -19,8 +19,23 @@ module.exports = appInfo => {
 
   //暂时禁用CSRF
   config.security = {
-      csrf: false
+      //csrf: false,
+      csrf:{
+        ignoreJSON:true, //默认为false,当设置为true时，将会放过所有
+      },
+      methodnoallow:{
+        enable:false
+      },
+      //白名单
+      domainWhiteList: [ 'http://localhost:3000' ], //允许跨域的端口
   }
+
+  config.cors = {
+      // origin:'*'
+      origin:'http://localhost:3000',
+      allowMethods:'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
+      credentials:true  //这个一定要设置
+  };
 
   return config;
 };

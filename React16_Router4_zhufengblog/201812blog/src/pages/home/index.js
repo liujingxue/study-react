@@ -10,6 +10,10 @@ export default class Home extends Component{
         //console.log(user);
         service[isSignUp ? 'signup' : 'signin'](user).then(res=>{
           if(res.code == 0){
+              if(!isSignUp){ //如果是登录功能
+                  sessionStorage.setItem('username',res.data.user.username);
+
+              }
               this.props.history.push('/admin'); //页面跳转
           }else{
               message.error(res.error);

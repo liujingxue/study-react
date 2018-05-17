@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>嵌套组件</title>
+</head>
+<body>
+
+<div id="app">
+    <div>parent
+        <div>
+            son
+            <div>
+                grandson
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="./../node_modules/vue/dist/vue.js"></script>
+<script>
+    let parent = {
+        template:'<div>parent</div>'
+    };
+    let son = {
+        template:'<div>son</div>'
+    }
+    let grandson = {
+        template:'<div>grandson</div>'
+    }
+    let vm = new Vue({
+        el:'#app',
+        data:{
+            a:{}
+        }
+    })
+</script>
+</body>
+</html>

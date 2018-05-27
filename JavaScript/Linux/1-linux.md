@@ -94,7 +94,7 @@ rm -f b.js b.js.back          // 删除这两个文件
 ## 7.Linux目录
 
 |  | 可分享的(shareable) | 不可分享的(unshareable) |
-| - | :-: | -: |
+| - | :- | :- |
 | 不变的(static) | /usr(软件放置处) | /etc(配置文件) |
 |   | /opt(第三方协力软件) | /boot(开机与核心档) |
 | 可变动的(variable) | /var/mail(使用者邮件信箱) | /var/run(程序相关) |

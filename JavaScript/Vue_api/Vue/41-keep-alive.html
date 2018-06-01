@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>强调nextTick的用法</title>
+</head>
+<body>
+
+<div id="app">
+    <!-- template slot transition -->
+    <!-- component 是vue自带的, 还有 template, slot -->
+    <!-- keep-alive也是vue自带的,可以将组件缓存起来,不销毁 -->
+    <!-- 一般用于缓存:为的是后面的路由做准备 -->
+    <!-- 如果缓存了就不会再走created,mounted钩子函数 -->
+    <keep-alive>
+        <component :is="radio"></component>
+    </keep-alive>
+
+    <input type="radio" v-model="radio" value="home">首页
+    <input type="radio" v-model="radio" value="list">列表页
+</div>
+<template id="myhome">
+    <div>home</div>
+</template>
+<template id="mylist">
+    <div>list</div>
+</template>
+<script src="./../node_modules/vue/dist/vue.js"></script>
+<script>
+    let home = {
+        template: "#myhome",
+        mounted(){
+            alert('挂载');
+        },
+        beforeDestroy(){
+            alert('销毁');
+        }
+    };
+    let list = {
+        template: "#mylist",
+        beforeDestroy(){
+            alert('销毁');
+        }
+    };
+    let vm = new Vue({
+        el:'#app',
+        components:{
+            home,list
+        },
+        data:{
+            radio:'home'
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>slot的用法</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+
+<div id="app">
+    <panel type="warning">
+        <div slot="title">这是一篇vue的使用</div>
+        <div slot="content">
+            内容区
+            <p>这是内容区</p>
+        </div>
+        <div>作者:author</div>
+    </panel>
+</div>
+
+<template id="mypanel">
+    <!-- :class="",动态绑定样式 -->
+    <!--<div class="panel" :class="['panel-'+type]"> 这样写也行-->
+    <div class="panel" :class="[color]">
+        <div class="panel-heading">
+            <slot name="title"></slot>
+        </div>
+        <div class="panel-body">
+            <slot name="content"></slot>
+        </div>
+        <div class="panel-footer">
+            <!-- 默认是default -->
+            <slot></slot>
+        </div>
+    </div>
+</template>
+<script src="./../node_modules/vue/dist/vue.js"></script>
+<script>
+    let panel = {
+        template:"#mypanel",
+        computed:{
+            color(){
+                return 'panel-'+this.type;
+            }
+        },
+        props:{
+            type:{ // 校验 this.type= 'default', 子组件不能更改父组件传递的属性
+                type:[String],
+                default:'default'
+            }
+        }
+    };
+    let vm = new Vue({
+        el:'#app',
+        data:{
+            a:{}
+        },
+        components:{
+            panel
+        }
+    })
+</script>
+</body>
+</html>

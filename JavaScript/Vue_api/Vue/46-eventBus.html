@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>eventBus</title>
+</head>
+<body>
+
+<div id="app">
+    <brother1></brother1>
+    <brother2></brother2>
+</div>
+
+<template id="mybrother1">
+    <div>
+        绿色<button>变绿</button>
+    </div>
+</template>
+<template id="mybrother2">
+    <div>
+        蓝色<button>变蓝</button>
+    </div>
+</template>
+<script src="./../node_modules/vue/dist/vue.js"></script>
+<script>
+    let brother1 = {
+        template:'#mybrother1'
+    };
+    let brother2 = {
+        template:'#mybrother2'
+    };
+    let vm = new Vue({
+        el:'#app',
+        data:{
+            a:{}
+        },
+        components:{
+            brother1,
+            brother2
+        }
+    })
+</script>
+</body>
+</html>

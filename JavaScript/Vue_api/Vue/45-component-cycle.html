@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件的循环</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+
+<div id="app">
+    <panel :type="article.type" @say-title="parent" v-for="(article,index) in articles" :key="index">
+        <div slot="title">
+            <span v-html="article.title"></span>
+        </div>
+        <div slot="content">
+           {{article.content}}
+        </div>
+        <div v-if="article.author">{{article.author}}</div>
+    </panel>
+</div>
+
+<template id="mypanel">
+    <!-- :class="",动态绑定样式 -->
+    <!--<div class="panel" :class="['panel-'+type]"> 这样写也行-->
+    <div class="panel" :class="[color]">
+        <div class="panel-heading" ref="head">
+            <slot name="title"></slot>
+        </div>
+        <div class="panel-body">
+            <slot name="content"></slot>
+        </div>
+        <div class="panel-footer">
+            <!-- 默认是default -->
+            <slot></slot>
+            <button @click="say">点我弹出标题</button>
+        </div>
+    </div>
+</template>
+<script src="./../node_modules/vue/dist/vue.js"></script>
+<script>
+    let panel = {
+        template:"#mypanel",
+        computed:{
+            color(){
+                return 'panel-'+this.type;
+            }
+        },
+        methods:{
+            say(){ // 触发父级的say-title方法
+                // @say-title 方法,多个单词间，用 -
+                // ref放到组件上, 取得是组件的实例
+                // this.$emit('say-title',this.$refs.head.innerHTML);
+                this.$emit('say-title',this.$refs.head.innerText);
+            }
+        },
+        props:{
+            type:{ // 校验 this.type= 'default', 子组件不能更改父组件传递的属性
+                type:[String],
+                default:'default'
+            }
+        }
+    };
+    let vm = new Vue({
+        el:'#app',
+        data:{
+            articles:[
+                {type:'warning',title:'标题',content:'这是vue的文章',author:'作者'},
+                {type:'primary',title:'标题2',content:'这是vue的文章2',author:'作者2'},
+                {type:'danger',title:'标题3',content:'这是vue的文章3',author:'作者3'}
+            ]
+        },
+        components:{
+            panel
+        },
+        methods:{
+            parent(title){
+                alert(title);
+            }
+        }
+    })
+</script>
+</body>
+</html>

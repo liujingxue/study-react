@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>路由的嵌套</title>
+</head>
+<body>
+
+<div id="app">
+    <router-link to="/home">首页</router-link>
+    <router-link to="/detail">详情页</router-link>
+
+    <router-view></router-view>
+</div>
+
+
+<tempalte id="mydetail">
+    <div>
+        <router-link to="/detail/profile">profile</router-link>
+        <router-link to="/detail/about">about</router-link>
+        <router-view></router-view>
+    </div>
+</tempalte>
+
+<script src="./../node_modules/vue/dist/vue.js"></script>
+<script src="./../node_modules/vue-router/dist/vue-router.js"></script>
+<script>
+    let home = {
+        template:'<div>home</div>'
+    };
+    let detail = {
+        template:'#mydetail'
+    };
+    let profile = {
+        template:'<div>profile</div>'
+    };
+    let about = {
+        template:'<div>about</div>'
+    };
+    let routes = [
+        {path:'/home',component:home},
+        {
+            path:'/detail',
+            component:detail,
+            children:[ //children中的路径永远不带/ , 如果带/,表示是一级路由
+                {
+                    path:'profile',
+                    component:profile
+                },
+                {
+                    path:'about',
+                    component:about
+                }
+            ]
+        }
+    ];
+    let router = new VueRouter({
+        routes
+    });
+    let vm = new Vue({
+        el:'#app',
+        data:{
+            a:{}
+        },
+        router
+    })
+</script>
+</body>
+</html>
